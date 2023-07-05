@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    
+    <script>
+        // let fruit = "apple";
+        // let fruit2 = "kiwi";
+        // let fruit3 = "orange";
+        // let fruit4 = "banana";
+        // let fruit5 = "grape";
+        // console.log("과일 종류는 " + fruit, fruit2, fruit3, fruit4, fruit5);
+
+        let fruit = ["apple", "kiwi", "orange", "banana", "grape"];
+        console.log("과일 종류는 " +fruit);
+        //인덱스가 부여되는데 0부터 시작한다.
+        console.log("과일 종류 중에 첫번째에 있는 과일은 " +fruit[0]);
+        console.log("과일 종류 중에 두번째에 있는 과일은 " +fruit[1]);
+        console.log("과일 종류 중에 세번째에 있는 과일은 " +fruit[2]);
+
+        fruit[0]="pineapple";
+        console.log(fruit);
+        //🛑❓🐸세번째에 토마토를 넣어보세요.
+        // fruit[2]="tomato";
+        // console.log(fruit);
+
+        //🛑pop() : 마지막에 있는 아이템을 뺌
+        //fruit.pop();
+        //console.log(fruit);
+        //🛑push() : 아이템을 배열 마지막에 추가함
+        //fruit.push("cherry");
+        //console.log(fruit);
+        //🛑 includes : 포함하고 있는지 묻는다.
+        //console.log(fruit.includes("apples"));
+        //🛑 indexOf : 몇 번째에 있는지 묻는다.
+        //console.log(fruit.indexOf("cherry"));
+        //🛑 slice() : 잘라낸다.
+        //기존(오리지널)의 배열은 유지.
+        //console.log(fruit.slice(2)); //앞에서 2개 잘라냄(추출)
+        //console.log(fruit.slice(1,3));// 시작점, 끝점 (끝점은 미포함)
+       
+        //🛑splice(2,1) : 시작점으로 부터 몇개의 아이템 제거
+        //기존(오리지널)의 배열이 잘림.
+        //fruit.splice(2,2);
+        //console.log(fruit);
+       
+        //😐slice와 splice의 차이
+        // let otherFruit = fruit.slice(1,3);
+        // console.log("새로운 배열",otherFruit);
+        // console.log("기존",fruit);
+
+        //퀴즈!준비
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <h2 id="title-1">Cat</h2>
+        <ul id="list-1">
+            <li>cat1</li>
+            <li>cat2</li>
+            <li>cat3</li>
+        </ul>
+        <h2 id="title-2">Dog</h2>
+        <ul id="list-2">
+            <li>dog1</li>
+            <li>dog2</li>
+            <li>dog3</li>
+        </ul>
+    </div>
+
+    <script>
+        const myTag = document.querySelector('#content');
+        console.log(myTag);
+
+        // 자식 요소 노드
+        console.log(myTag.children);
+        console.log(myTag.children[1]);
+        console.log(myTag.firstElementChild);
+        console.log(myTag.lastElementChild);
+
+        // 부모 요소 노드
+        console.log(myTag.parentElement);
+
+        // 형제 요소 노드
+        console.log(myTag.previousElementSibling);
+        console.log(myTag.nextElementSibling);
+
+        const myTag2 = document.querySelector('#list-1');
+        console.log(myTag2.previousElementSibling);
+        console.log(myTag2.nextElementSibling);
+
+        console.log(myTag2.parentElement.nextElementSibling);
+
+        
+    </script>
+</body>
+
+</html>

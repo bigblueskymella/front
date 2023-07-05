@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07date.html</title>
+
+    
+    <script>
+        function mydate(){
+            var fruits=["블루","오렌지","체리","망고"];
+            var emp = [ 
+                       {"name":"아마존", "age":9}, 
+                       {"name":"네이버", "age":15}, 
+                       {"name":"카카오", "age":13}
+                    ];
+
+           
+                var days = new Array("일","월","화","수","목","금","토");
+                var date = new Date();
+                document.write("오늘은 " 
+                + date.getFullYear() + "년 " 
+                + (date.getMonth()+1) + "월 " 
+                + date.getDate() + "일 " 
+                + days[date.getDay()] + "요일입니다<p>"); 
+            
+                document.write("오늘은 " 
+                + date.getFullYear() + "년 " 
+                + date.getMonth() + "월 " 
+                + date.getDate() + "일 " 
+                + date.getDay() + "요일입니다<p>"); 
+
+                document.write("현재시간은 " 
+                + date.getHours() + "시 " 
+                + date.getMinutes() + "분 " 
+                + date.getUTCSeconds() + "초입니다<p>"); 
+        }
+    </script>
+</head>
+<body>
+    <h2>07date.html</h2>
+    <div id="display"></div> 
+    <input type="button" onclick="mydate()" value="배열날짜응용">
+</body>
+</html>

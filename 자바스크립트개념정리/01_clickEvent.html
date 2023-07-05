@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click Alert</title>
+</head>
+<body>
+    <style>
+        li{
+            display: inline;
+            padding: 0 20px;
+            border: dotted 1px gray;
+        }
+        a{
+            text-decoration: none;
+            color: gray;
+        }
+        #result{
+            border: solid 1px;
+            border-radius: 20px;
+            width: 200px;
+            height: 150px;
+            position: relative;
+            left: 80px;
+        }
+    </style>
+    <ul>
+        <!-- 먼저 이 아래 3줄만 입력해보기. (정석544쪽)
+
+        <li><a href="#" onclick="alert('버튼을 클릭했습니다.')">Green</a></li>
+        <li><a href="#" onclick="alert('버튼을 클릭했습니다.')">Orange</a></li>
+        <li><a href="#" onclick="alert('버튼을 클릭했습니다.')">Purple</a></li>-->
+
+        <li><a href="#" onclick="changeBg('green')">Green</a></li>
+        <li><a href="#" onclick="changeBg('orange')">Orange</a></li>
+        <li><a href="#" onclick="changeBg('purple')">Purple</a></li>
+    </ul>
+    <div id="result"></div>
+    <script>
+        function changeBg(color){
+            let result = document.querySelector('#result');
+            result.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>

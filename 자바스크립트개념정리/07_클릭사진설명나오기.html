@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 사진설명</title>
+</head>
+
+<body>
+    <style>
+        .detail p {
+            width: 270px;
+            padding: 15px;
+            border: solid 1px;
+            background-color: lightblue;
+        }
+        .detail {
+            display: none;
+        }
+        .over {
+            width: 120px;
+            background-color: white;
+            filter: opacity(0.8);
+            position: absolute;
+            left: 12px;
+            top: 245px;
+            border: none;
+            cursor: pointer;
+        }
+        .close{
+            width: 120px;
+            background-color:lightgray;
+            /* filter: opacity(0.8); */
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <img src="images/pci_6.jpg" width="300px" alt="">
+    <button id="open" class="over">상세 설명 보기</button> <!-- onclick="showDetail()"을 같이 할 수 있다.-->
+    <div id="desc" class="detail">
+        <p>
+            사람에게) …을 할 수 있게 하다 (=allow)
+            무엇을) 가능하게 하다 (=allow)
+            살아 있는2.생방송의, 생중계의3.생방송[생중계/실황]으로
+            총을) 재장전하다, (카메라에 필름 등을) 다시 집어넣다
+            컴퓨터 기억 장치에 데이터·프로그램을) 재적재[재배치]하다
+            용기·차량·기계 등을) 다시 채우다
+        </p>
+        <button id="close" class="close">상세 설명 닫기</button> <!--//onclick="hideDetail()"을 직접 넣을 수 있다 (정석546)-->
+    </div>
+    <br><br><br>
+
+</body>
+
+<script>
+
+
+/////////////////🥗🌵🌿클릭 사진 설명/////////////////////////////////////////
+    document.querySelector('#open').onclick = function () { //표시
+        document.querySelector('#desc').style.display = "block";
+        document.querySelector('#open').style.display = "none";
+    }
+    document.querySelector('#close').onclick = function () { //감추기 
+        document.querySelector('#desc').style.display = "none";
+        document.querySelector('#open').style.display = "block";
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in 문</title>
+</head>
+<body>
+    <script>
+        let info = {
+            subject: 'javascript',
+            credit: 3
+        };
+        for(let i in info){ //i변수는 info객체 속성의 이름이며 circle[i]는 속성의 값
+            console.log(i + '::: ' + info[i]); //sub...:java... credit:3
+        }
+//////////////////////////////////////////
+        let info2 = {
+            subject: 'javascript',
+            credit: 3,
+            days: 22,
+            tuition: 1000 //수업료
+        };
+        for(let i in info2){ //i변수는 info객체 속성의 이름이며 circle[i]는 속성의 값
+            console.log(i + ':// ' + info2[i]); //sub...:java... credit:3
+        }
+    </script>
+</body>
+</html>

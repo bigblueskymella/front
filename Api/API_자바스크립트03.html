@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <div class="head-line"> <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT05OryiebhiD1LeusMMRv6VMZ2iJxnZNB6CQ&usqp=CAU"
+                    alt=""></div>
+            <div class="menus">
+                <button>날씨</button>
+                <button>뉴스</button>
+                <button>도서</button>
+                <button>운동</button>
+                <button>음악</button>
+                <button>요리</button>
+                <button>여행</button>
+            </div>
+
+            <span>
+                <input type="text" id="search-input">
+                <button id="search-button">Go</button>
+            </span>
+
+            <section id="news-board">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="news-img-size"
+                            src="https://image.aladin.co.kr/product/28966/11/letslook/K292836721_b.jpg" alt="">
+                    </div>
+                    <div class="col-lg-8">
+                        <h5> title ${item.title} </h5>
+                        <p>${item.contents}</p>
+                        <div>${item.datetime} </div>
+                        <a href="${item.url}">상세 뉴스보기</a>
+                    </div>
+                </div>
+            </section>
+            <nav aria-label="Page navigation example">
+                <ul class="pagenation">
+
+                </ul>
+            </nav>
+        </section>
+    </div>
+
+    <script>
+        let news = [];
+        let page = 1;
+        let total_pages = 0;
+        let menus = document.querySelectorAll(".menus button")
+        menus.forEach(menu => menu.addEventListener("click", (event) => getNewsByTopic(event)))
+
+        let searchButton = document.getElementById("search-button");
+        let url;
+
+        const getNews = async () => {
+            try {
+                let header = new Headers({ 'Authorization': 'KakaoAK ab44543239760acabf8e5a55b74860d5' });
+                url.searchParams.set('page',page); //&page=숫자
+                console.log("url은?",url)
+                let response = await fetch(url, { headers: header }) //fetch라는 함수 기다려주는 거
+                let data = await response.json();
+                if (response.status == 200) {
+                    news = data.documents;
+                    total_pages = data.pageable_count;
+
+                    console.log("받는 데이터", data)
+                    render();
+                    pagenation();
+                } else {
+                    throw new Error(data.message)
+                }
+
+            } catch (error) {
+                console.log("잡힌 에러는", error.message);
+                errorRender(error.message);
+            }
+        };
+        //💛🧡코드 리팩토링
+        //각 함수에서 필요 url만든다. (전역변수)
+        //api호출 함수를 부른다.
+
+        const getLatestNews = async () => { //비동기 : 응답을 기다리는 것
+            url = new URL(`https://dapi.kakao.com/v2/search/web?query=뉴스`);
+            getNews();
+        };
+
+        const getNewsByTopic = async (event) => {
+            let topic = event.target.textContent.toLowerCase();
+            url = new URL(`https://dapi.kakao.com/v2/search/web?query=${topic}`)
+            getNews();
+        };
+
+        const getNewsByKeyword = async () => { //화살표 함수 정의
+            //1. 검색 키워드 읽어오기
+            //2. url에 검색 키워드 붙이기
+            //3. 헤더준비
+            //4. url 부르기
+            //5. 데이터 가져오기
+            //6. 데이터 보여주기
+
+            let keyword = document.getElementById("search-input").value;
+            url = new URL(`https://dapi.kakao.com/v2/search/web?query=${keyword}&size=5`);
+            getNews();
+        }
+
+        const render = () => {
+            let newsHTML = news.map(item => {
+                return `<div class="row">
+                    <div class="col-lg-4">
+                        <img class="news-img-size" src="https://image.aladin.co.kr/product/28966/11/letslook/K292836721_b.jpg" alt="">
+                    </div>
+                    <div class="col-lg-8">
+                        <h5> ${item.title} </h5>
+                        <p>${item.contents}</p>
+                        <div>${item.datetime} <a href="${item.url}">상세 뉴스보기</a></div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            document.getElementById("news-board").innerHTML = newsHTML;
+        };
+
+        const errorRender = (message) => {
+            let errorHTML = `<div>${message}</div>`
+            document.getElementById("news-board").innerHTML = errorHTML;
+        }
+
+        searchButton.addEventListener("click", getNewsByKeyword); //위치. 화살표함수 호이스팅x 함수 정의되기 전에 쓸 수 없다.
+        getLatestNews();
+
+        const pagenation = () => {
+            let pagenationHTML = ``;
+            //total_page
+            //page
+            //page group
+            let pageGroup = Math.ceil(page / 5);
+            //last
+            let last = pageGroup * 5;
+            //first
+            let first = last - 4;
+            //first~last 페이지 프린트
+
+            pagenationHTML = `<li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true" onclick="moveToPage(${page.first})">&laquo;</span>
+                    </a>
+                    </li><li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous" onclick="moveToPage(${page-1})">
+                        <span aria-hidden="true">&lt;</span>
+                    </a>
+                    </li>`;
+            for (let i = first; i <= last; i++) {
+                pagenationHTML += `<li class="page-item ${page==i?"active":""}"><a class="page-link" href="#" onclick="moveToPage(${i})">${i}</a></li>`;
+            }
+            pagenationHTML += `<li class="page-item">
+                <a class="page-link" href="#" aria-label="Next" onclick="moveToPage(${page+1})">
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+                </li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true" onclick="moveToPage(${page.last})">&raquo;</span>
+                </a>
+                </li>`;
+            
+            document.querySelector(".pagenation").innerHTML = pagenationHTML;
+        };
+
+        const moveToPage = (pageNum) => {
+            //1. 이동하고 싶은 페이지를 알아야한다.
+            page = pageNum;
+            console.log(page);
+            //2. 이동하고 싶은 페이지를 가지고 api를 다시 호출
+            url = new URL(`https://dapi.kakao.com/v2/search/web?query=뉴스`);
+            getNews();
+        }
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!--moment-->
+</body>
+
+</html>

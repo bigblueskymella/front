@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span{
+        margin-left: 100px;
+        color: lightblue;
+        cursor: pointer;
+    }
+    span:hover{
+        color: blue;
+    }
+</style>
+<body>
+    <div id = "container">
+        <h1>참석자 명단</h1>
+        <form action="">
+            <input type="text" id="userName" placeholder="이름" required>
+            <button onclick="newRegister(); return false;">신청</button> <!--버튼에 이벤트 함수지정-->
+        </form>
+        <hr>
+        <div id="nameList">
+            <!--<p>홍길동<span class="del">X</span></p>
+            <p>백두산<span class="del">X</span></p>
+            <p>도레미<span class="del">X</span></p>-->
+        </div>
+    </div>
+    <script>
+        function newRegister(){
+            let newP = document.createElement("p"); //새 요소 만들기.
+            let userName = document.getElementById("userName"); //텍스트 필드 내용 가져오기. //🤩#안함
+            let newText = document.createTextNode(userName.value); //새 텍스트 노드 만들기.
+            newP.appendChild(newText); //newText노드를 newP노드의 자식 노드로 연결.
+            
+            let nameList = document.querySelector("#nameList");
+             //부모 노드 가져와 nameList변수에 저장
+            nameList.appendChild(newP);
+            userName.value=""; //텍스트 필드 비우기.
+            
+            /////////////////////////////////////////
+
+            let delBtn = document.createElement("span"); //새 span 요소 만들기
+            let delText = document.createTextNode("X"); //새 텍스트 노드 만들기
+            delBtn.setAttribute("class", "del"); //버튼에 class 속성 설정하기
+            delBtn.appendChild(delText); //텍스트노드를 btn요소의 자식 요소로 추가하기
+            newP.appendChild(delBtn); //🤗🎨🧧del버튼을 p요소의 자식 요소로 추가하기 
+
+            //document.querySelectorAll("p")[0]
+            //nameList.insertBefore(nameList.children[2], nameList.children[0]) //앞에 추가할노드, 기준 노드
+
+            let removBtns = document.querySelectorAll(".del");
+            for(let i=0; i<removBtns.length; i++){
+                removBtns[i].addEventListener("click", function(){
+                    if(this.parentNode.parentNode) //현재 노드(this)의 부모 노드의 부모 노드가 있을 경우
+                    this.parentNode.parentNode.removeChild(this.parentNode);//this의 부모's부모찾아 this's부모p삭제
+                });
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>색바뀌는 숫자 올라가는 버튼</title>
+    <style>
+        #number {
+            font-size: 100px;
+        }
+
+        .color-btn {
+            width: 30px;
+            height: 30px;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .peru {
+            background-color: peru;
+        }
+
+        .purble {
+            background-color: purple;
+        }
+
+        .black {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="number">0</div>
+    <div id="btns">
+        <div>
+            <button id="decrease">-</button>
+            <button id="increase" onclick="increase()">+</button>
+        </div>
+        <div>
+            <button class="color-btn red" data-color="red"></button>
+            <button class="color-btn orange" data-color="orange"></button>
+            <button class="color-btn yellow" data-color="yellow"></button>
+            <button class="color-btn green" data-color="green"></button>
+            <button class="color-btn blue" data-color="blue"></button>
+            <button class="color-btn peru" data-color="peru"></button>
+            <button class="color-btn purple" data-color="purple"></button>
+            <button class="color-btn black" data-color="black"></button>
+        </div>
+    </div>
+    <script>
+        const myNumberTag = document.getElementById('number');
+        const decreaseBtn = document.getElementById('decrease');
+        const increaseBtn = document.getElementById('increase');
+
+        let myNumber = +myNumberTag.textContent;
+
+        decreaseBtn.onclick = function () {
+            myNumber--;
+            myNumberTag.textContent = myNumber;
+        }
+
+        increaseBtn.onclick = function () {
+            myNumber++;
+            myNumberTag.textContent = myNumber;
+        }
+
+        const colorBtns = document.getElementsByClassName('color-btn');
+
+        for (let btn of colorBtns) {
+            btn.onclick = function () {
+                myNumberTag.style.color = btn.dataset.color;
+            }
+        }
+    </script>
+</body>
+
+</html>

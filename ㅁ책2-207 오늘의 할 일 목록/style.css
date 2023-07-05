@@ -1,0 +1,55 @@
+body{
+    border: solid 1px gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+h2{
+    text-align: center;
+}
+
+form{
+    width: 400px;
+    padding: 15px ;
+    background-color: rgb(219, 235, 148);
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    width: 250px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+#itemList{
+    width: 400px;
+    height: 450px;
+}
+
+#itemList li:nth-child(odd){ /*홀수 스타일li*/
+    background-color: rgb(170, 207, 166);
+    height: 30px;
+}
+
+#itemList li:nth-child(even){ /*짝수 스타일li*/
+    background-color: rgb(236, 236, 236);
+    height: 30px;
+}
+
+ul li{
+    list-style: none;
+}
+
+.close{
+    cursor: pointer;
+    float: right;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-weight: 700;
+    color: gray;
+}

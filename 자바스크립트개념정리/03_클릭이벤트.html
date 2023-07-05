@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    이미지 클릭 함수 실행 <br>
+    <img src="images/K-25.jpg" id="pic" width="200">
+
+<script>
+    let pic = document.querySelector("#pic");
+    pic.onclick = changePict;
+
+    function changePict(){
+        pic.src = "images/K-26.jpg";
+    }
+
+    // 클릭한 위치 알기 (좌표)
+    // pic.onclick = function(event){
+    //     alert("이벤트 유형: " + event.type + ", 이벤트 발생위치: " + event.pageX + "," + event.pageY);
+    // }
+    
+</script>
+</body>
+</html>

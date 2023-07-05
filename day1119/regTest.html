@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regTest.html</title>
+    <script>
+        function myCheck(){
+            myt = document.myform.title.value; //document생략가능
+            if (myt=="" || myt==null){
+                alert('제목데이터 공백입니다\n정확한 데이터 기술이 필요합니다');
+                document.myform.title.focus(); //입력란에 초점
+                return ; //아래문장처리안하고 함수탈출 정답 return false;
+            }else{document.myform.pay.focus();}
+
+            myE = document.myform.
+            //메일널체크 @포함여부확인
+            //급여데이터 숫자만 입력
+            myp=myform.pay.value;
+            size = myform.pay.value.length;
+            if (myp=="" || myp==null){
+                alert('급여데이터 공백입니다');
+                document.myform.pay.focus();
+                return false; //return만 기술해도 됩니다
+            }else{
+               //공백이 아니면 자릿수체크  
+               if (size<3  || size >5){
+                 alert('급여자릿수는 3~5자릿수 적절합니다 ');
+                 myform.pay.value=''; //데이터삭제
+                 myform.pay.focus() ; 
+               }
+            }
+
+
+
+            message = '제목데이터:' +  myt + " 급여데이터:" + myp ;
+            document.getElementById('display').innerHTML='<h2>' + message +'</h2>';
+        }//end
+
+        function myClear(){
+          document.getElementById('display').innerHTML='';
+        }//end
+
+
+        function myNumberCheck(){
+            size = myform.pay.value.length;
+            myp=myform.pay.value;
+            //alert(myp + ' 문자열길이 '+ size);
+            //문자열길이 3~5제한 
+          
+            //document.getElementById('display').innerHTML=myp +' ' + size;
+        }
+
+    </script>
+</head>
+<body>
+    <h2>regTest.html화면등록</h2>
+    <div id="display"></div> 
+
+    <form name="myform"  method="get" action="">
+        제목: <input type="text" name="title" id="title"> <br>
+        메일: <input type="text" name="email" id="email"> <br>
+        급여: <input type="text" onkeyup="myNumberCheck()"  name="pay" id="pay"> <br>
+        <input type="button" onclick="myCheck()" value="데이터등록">
+        <input type="reset" onclick="myClear()"   value="입력취소">
+        <input type="button" onclick="" value="test">
+    </form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reg.html</title>
+    <script>
+        function myCheck(){
+            myt = document.myform.title.value; //document생략가능
+            if (myt=="" || myt==null){
+                alert('제목데이터 공백입니다\n정확한 데이터 기술이 필요합니다');
+                document.myform.title.focus(); //입력란에 초점
+                return ; //아래문장처리안하고 함수탈출 정답 return false;
+            }else{document.myform.pay.focus();}
+
+            myp=myform.pay.value;
+            if (myp=="" || myp==null){
+                alert('급여데이터 공백입니다');
+                document.myform.pay.focus();
+                return false; //return만 기술해도 됩니다
+            }
+
+            message = '제목데이터:' +  myt + " 급여데이터:" + myp ;
+            document.getElementById('display').innerHTML='<h2>' + message +'</h2>';
+        }//end
+
+        function myClear(){
+          document.getElementById('display').innerHTML='';
+        }
+    </script>
+</head>
+<body>
+    <h2>화면등록</h2>
+    <div id="display"></div> 
+
+    <form name="myform"  method="get" action="">
+        제목: <input type="text" name="title" id="title"> <br>
+        급여: <input type="text" name="pay" id="pay"> <br>
+        <input type="button" onclick="myCheck()" value="데이터등록">
+        <input type="reset" onclick="myClear()"   value="입력취소">
+        <!-- 🔴기본 리셋제공 <input type="reset" value="reset"> -->
+    </form>
+</body>
+</html>

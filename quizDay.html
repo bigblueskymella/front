@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>날짜 출력</title>
+</head>
+
+<body>
+    <h2>날짜를 출력하는 다양한 방법</h2>
+    <script>
+        function meetAt(year, month, date) {
+            let todayYear = year;
+            let todayMonth = month;
+            let todayDate = date;
+
+            if (todayDate) {
+                return `${todayYear}/${todayMonth}/${todayDate}`;
+            }
+            if (todayMonth) {
+                return `${todayYear}년 ${todayMonth}월`;
+            }
+            if (todayYear) {
+                return `${todayYear}년`;
+            }
+        }
+
+        console.log(meetAt(2022));
+        console.log(meetAt(2022, 8));
+        console.log(meetAt(2022, 8, 30));
+
+        document.write(meetAt(2022));
+        document.write(meetAt(2022, 8));
+        document.write(meetAt(2022, 8, 30));
+    </script>
+</body>
+
+</html>

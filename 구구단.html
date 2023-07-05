@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+<body>
+    
+    <script>
+        
+        for(let i=2; i<10; i++){ //i=0부터 i=29까지 총 30회 반복
+            for(let j=1; j<10; j++){ //i=0부터 i=29까지 총 30회 반복
+            document.write(i+"x"+j+"="+i*j);
+            document.write("<br>");
+        }
+            document.write("<br>");
+        }
+        //실행순서
+        //1. 바깥쪽 for문을 실행(k=0)
+        //2. 안쪽 for문 실행 30번 반복하고 빠져나옴
+        //3. <br>태그 추가해서 줄 바꿈.
+        //4. 바깥쪽 for문 조건식이 false가 될 때까지 반복
+
+    </script>
+</body>
+</html>

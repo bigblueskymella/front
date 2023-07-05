@@ -1,0 +1,85 @@
+<html>
+<style>
+    #result li {
+        border-bottom: 1px solid #ddd;
+        padding: 12px;
+        list-style-type: square;
+    }
+
+    #result li a {
+        color: #333;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <div>
+        <label for="search">검색어</label><input type="text" id="search" value="뉴스" />
+        <button onclick="test()">검색</button>
+    </div>
+    <ul id="result">
+        <!--이 곳에 내용을 리스트로 보여준다.-->
+    </ul>
+
+    <script>
+        //💛api data불러오기.
+        async function postData(url = '', data = {}) {
+            const response = await fetch(url, {
+                method: 'GET', // *GET, POST, PUT, DELETE 등
+                headers: { 'Authorization': 'KakaoAK ab44543239760acabf8e5a55b74860d5', },
+            });
+            return data = await response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
+        }
+
+        postData('https://dapi.kakao.com/v2/search/vclip?query=날씨', { answer: 42 }).then((data) => {
+            console.log(data); // JSON 데이터가 `data.json()` 호출에 의해 파싱됨
+            news = data.documents;
+            console.log(news);
+
+            render(news);
+        });
+
+
+
+        const getNewsByKeyword = async () => { //화살표 함수 정의
+            //1.검색 키워드 읽어오기
+            //2. url에 검색 키워드 붙이기
+            //3. 헤더준비
+            //4. url 부르기
+            //5. 데이터 가져오기
+            //6. 데이터 보여주기
+
+            let keyword = document.getElementById("search-input").value;
+            let url = new URL(`https://dapi.kakao.com/v2/search/web?query=${keyword}&size=5`);
+            let header = new Headers({ 'Authorization': 'KakaoAK ab44543239760acabf8e5a55b74860d5' });
+            let response = await fetch(url, { headers: header })
+            let data = await response.json();
+            news = data.documents;
+            console.log(news);
+            render();
+        }
+
+        const render = () => {
+            let newsHTML = news.map((item) => {
+                return `<div class="row">
+                    <div class="col-lg-4">
+                        <img class="news-img-size" src="https://image.aladin.co.kr/product/28966/11/letslook/K292836721_b.jpg" alt="">
+                    </div>
+                    <div class="col-lg-8">
+                        <h5> ${item.title} </h5>
+                        <p>${item.contents}</p>
+                        <div>${item.datetime} <a href="${item.url}">상세 뉴스보기</a></div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            document.getElementById("news-board").innerHTML = newsHTML;
+        }
+
+        searchButton.addEventListener("click", getNewsByKeyword); //위치. 화살표함수 호이스팅x 함수 정의되기 전에 쓸 수 없다.
+        getLatestNews();
+
+    </script>
+</body>
+
+</html>

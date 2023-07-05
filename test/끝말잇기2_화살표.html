@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+</head>
+<body>
+    <div><span id="order">1</span>번째 참가자</div>
+    <div>제시어: <span id="word"></span></div>
+    <input type="text">
+    <button>입력</button>
+
+    <script>
+        const number = parseInt(prompt('몇 명이 참가하나요?'), 10); //10생략가능(십진수)
+        // alert(number);
+        const yesOrNo = confirm (number + '명 맞나요?');
+
+        const $button = document.querySelector('button');
+        console.log($button);
+        //😁변수명 지을 때 $button 저만의 법칙. $$button여러개 선택시.
+
+        document.querySelector('input').addEventListener('input', function(){
+            console.log('글자 입력');
+        });
+        //✅🔷줄여서 화살표 함수로 쓰는 법
+        // document.querySelector('input').addEventListener('input', () => {
+        //     console.log('글자 입력');
+        // });
+
+        const onClick = function(){ 
+            console.log('버튼 클릭');
+        }
+        //✅🔷줄여서 화살표 함수로 쓰는 법
+        const onClick = () => {
+            console.log('버튼 클릭');
+        }
+
+        document.querySelector('button').addEventListener('click', onClick); //문자열, 🔴함수자리()호출안됨 이름만 넣기.
+
+    </script>
+</body>
+</html>

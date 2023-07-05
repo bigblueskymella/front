@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+</head>
+<body>
+    <div><span id="order">1</span>번째 참가자</div>
+    <div>제시어: <span id="word"></span></div>
+    <input type="text">
+    <button>입력</button>
+
+    <script>
+        const number = parseInt(prompt('몇 명이 참가하나요?'), 10); //10생략가능(십진수)
+        // alert(number);
+        const yesOrNo = confirm (number + '명 맞나요?');
+
+        const $button = document.querySelector('button');
+        console.log($button);
+        //😁변수명 지을 때 $button 저만의 법칙. $$button여러개 선택시.
+
+        //😊😊이벤트 리스너 : 사용자가 눌렀다 입력했다를 알아차림.
+        document.querySelector('input').addEventListener('input', (event) => {
+            console.log('글자 입력', event.target.value); //사용자가 입력한 값이 들어있다.
+        })
+        // document.querySelector('button').addEventListener('click', function(){
+        //     console.log('버튼 클릭');
+        // })
+
+        const onClick = function(){ //한번만 쓰인 변수명 이름지어주든 function()이든
+            console.log('버튼 클릭');
+            //return undefined; 생략되어있다.
+        }
+        document.querySelector('button').addEventListener('click', onClick); //문자열, 🔴함수자리()호출안됨 이름만 넣기.
+
+    </script>
+</body>
+</html>

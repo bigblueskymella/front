@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        width: 30px;
+        height: 20px;
+        text-align: center;
+    }
+    table {
+        width: 400px;
+    }
+
+    table,
+    td {
+        border: solid 1px purple;
+        border-collapse: collapse;
+    }
+    td{
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <input type="text">행 <input type="text"> 열
+    <button onclick="addB(); return false">작성</button>
+    <div id="creTable">
+
+    </div>
+
+    <script>
+
+        function addB() {
+            let trNode = document.createElement("tr");
+            let tdNode = document.createElement("td");
+
+            let numTr = document.getElementsByTagName("input")[0].value;
+            let numTd = document.getElementsByTagName("input")[1].value;
+
+            let newTa = document.createElement("table");//🎁div아래에 table 만들기.
+            for (let i = 0; i < numTr; i++) {
+                let trNode = document.createElement("tr")
+                for (let j = 0; j < numTd; j++) {
+                    let tdNode = document.createElement("td");
+                    let textNode = document.createTextNode(`${i},${j}`);
+                    tdNode.appendChild(textNode);
+                    trNode.appendChild(tdNode);
+                }
+                newTa.appendChild(trNode)//4번    
+            }
+            let creTable = document.querySelector("#creTable");
+            creTable.appendChild(newTa);
+        }
+    </script>
+</body>
+
+</html>

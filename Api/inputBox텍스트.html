@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="myText">
+    <button onclick="clickBtn()">클릭</button>
+</body>
+
+<script>
+    function clickBtn() {
+        let textValue = document.getElementById("myText").value;
+        console.log(textValue);
+        if (textValue === '') { // 💘 ==이어야돼
+            alert("텍스트를 입력하지 않았습니다.");
+        } else {
+            alert(textValue);
+        }
+    }
+</script>
+
+</html>

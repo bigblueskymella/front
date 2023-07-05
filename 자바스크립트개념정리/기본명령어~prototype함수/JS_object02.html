@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성자 함수의 변경</title>
+</head>
+<body>
+    <script>
+        //객체 생성자 함수의 변경
+        //sub1객체에 추가, 제거, 변경된 속성들은 sub1객체에만 적용되고
+        //sub객체의 속성에는 영향을 주지 않는다.
+        //속성의 추가, 제거, 변경을 모든 객체에 적용하려면
+        //Info함수 안에 속성들을 수정해야 한다.
+        function Info4(subject, credit){ //Info4를 통해// 함수명의 첫 문자 대문자로
+            this.subject = subject; //this는 함수를 통해 생성되는 객체를 의미.
+            this.credit = credit;
+            this.printOut = function(){
+                return this.subject + ', ' + this.credit + '학점';
+            };
+        };
+        let sub1 = new Info4('html', 1); // sub1 객체와
+        sub1.days = 17; //속성 추가
+        console.log(sub1.days); //17
+        delete sub1.credit; //속성 제거
+        console.log(sub1.credit); //undefined
+        sub1.printOut = function(){ //속성 변경
+            return this.subject + ', '+this.days+'일';
+        }
+
+        let sub2 = new Info4('css', 2); //sub2 객체가 생성된 예.
+        console.log(sub2.days);// undefined
+        console.log(sub2.credit); // 2
+        console.log(sub2.printOut()); //css, 2학점
+
+//객체 생성 예제
+        //객체 리터럴
+        let circle = {
+            color : 'yellow',
+            diameter : 100,
+            radius : function(){
+                return this.diameter / 2;
+            }
+        };
+        console.log(circle.color);
+        console.log(circle.diameter);
+        console.log(circle.radius());
+        //객체 생성자 함수
+        function Triangle(b, h) {
+            this.base = b;
+            this.height = h;
+            this.area = function(){
+                return this.base * this.height / 2;
+            };
+        }
+        let triangle1 = new Triangle(15, 15);
+        console.log(triangle1.base);
+        console.log(triangle1.height);
+        console.log(triangle1.area());
+        let triangle2 = new Triangle(25, 10);
+        console.log(triangle2.base);
+        console.log(triangle2.height);
+        console.log(triangle2.area());
+
+
+        
+
+    </script>
+</body>
+</html>

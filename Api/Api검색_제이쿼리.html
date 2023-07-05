@@ -1,0 +1,67 @@
+<html>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script> /*제이쿼리 CDN*/
+    $(document).ready(function () {
+        test();
+    })
+
+    function test() {
+        const query = $("#query").val()
+        if (!query) {
+            alert("검색어를 입력해 주세요.");
+            return false;
+        }
+
+        $.ajax({
+            type: 'get',
+            url: "https://dapi.kakao.com/v2/search/web",
+            data: { query: query },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "KakaoAK ab44543239760acabf8e5a55b74860d5");
+            },
+            error: function (xhr, status, error) {
+                alert(error);
+            },
+            success: function (xml) {
+                const result = xml.documents;
+                const meta = xml.meta;
+
+                draw(result);
+            },
+        });
+    }
+
+    function draw(resultStr) {
+        let result = ""
+        resultStr.forEach(item => {
+            const row = `<li><a href="${item.url}">${item.contents}</a></li>`;
+            result += row;
+        });
+        $("#result").html(result);
+    }
+
+</script>
+<style>
+    #result li {
+        border-bottom: 1px solid #ddd;
+        padding: 12px;
+        list-style-type: square;
+    }
+
+    #result li a {
+        color: #333;
+        text-decoration: none;
+    }
+</style>
+<body>
+    <div>
+        <label for="query">검색어</label><input type="text" id="query" value="초등옷" />
+        <button onclick="test()">ajax test</button>
+    </div>
+    <ul id="result">
+        <!--이 곳에 내용을 리스트로 보여준다.-->
+    </ul>
+</body>
+
+</html>

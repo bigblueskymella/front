@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>api test</title>
+    </head>
+    <body>
+        <div id="data-viewer">
+            <h3>title</h3>
+            <section>
+                <article>
+                    
+                </article>
+                <div>
+                    <embed src="" type="">
+                </div>
+            </section>
+        </div>
+        
+        <script>
+            let news = [];
+            //💛api data불러오기.
+            async function postData(url = '', data = {}) {
+            const response = await fetch(url, {
+                method: 'GET', // *GET, POST, PUT, DELETE 등
+                headers: {'Authorization': 'KakaoAK ab44543239760acabf8e5a55b74860d5',                },
+            });
+            return data = await response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
+            }
+
+            postData('https://dapi.kakao.com/v2/search/vclip?query=날씨', { answer: 42 }).then((data) => {
+            console.log(data); // JSON 데이터가 `data.json()` 호출에 의해 파싱됨
+            news = data.documents;
+            console.log(news);
+            
+            render();
+            });
+
+            const render = () => {
+                let newsHTML = '';
+                newsHTML = news.map((item) => {
+                    return `<div id="data-viewer">
+                            <h3>${item.title}</h3>
+                            <section>
+                                <article>
+                                    
+                                </article>
+                                <div>
+                                    <img src = "${item.thumbnail}">
+                                    <a href="${item.url}"> 자세히보기 </a>
+                                    ${item.author}
+                                    ${item.datetime}
+                                </div>
+                            </section>
+                        </div>`;
+                }).join('');
+                
+                document.getElementById("data-viewer").innerHTML = newsHTML;
+            }
+            
+        </script>
+    </body>
+    </html>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05array.html</title>
+
+    
+    <script>
+        function myfruit(){
+            var fruits=["블루","오렌지","체리","망고"];
+           
+            var data = "" ;
+            //정석 for(var i=0; i<fruits.length; i++){ data  += fruits[i] + "<br>";  } 
+            for( j in fruits){ data  += fruits[j] + "<br>";  }
+            document.getElementById("display").innerHTML = data;
+        }
+    </script>
+</head>
+<body>
+    <h2>05array.html</h2>
+    <div id="display"></div> 
+    <input type="button" onclick="myfruit()" value="배열과일">
+</body>
+</html>

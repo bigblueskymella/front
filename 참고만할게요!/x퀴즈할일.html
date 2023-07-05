@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>오늘 할 일</title>
+    <link rel="stylesheet" href="./quiz02.css">
+</head>
+
+<body>
+    <div class="main">
+        <h2 class="title">오늘 할 일</h2>
+        <ul id="to-do-list">
+
+        </ul>
+    </div>
+    <script>
+        const toDoList = document.querySelector('#to-do-list');
+
+        function addNewTodo(text) {
+            const li = document.createElement("li"); // 1단계
+            li.textContent = text; // 2단계
+            toDoList.append(li); // 3단계
+        }
+
+        addNewTodo('자바스크립트 공부하기');
+        addNewTodo('논술 공부하기');
+        addNewTodo('인적성 시험 공부하기');
+    </script>
+</body>
+
+</html>

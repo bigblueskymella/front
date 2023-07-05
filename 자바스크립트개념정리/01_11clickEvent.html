@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click Alert</title>
+</head>
+<body>
+    <style>
+        li{
+            display: inline;
+            padding: 0 20px;
+            border: dotted 1px gray;
+        }
+        a{
+            text-decoration: none;
+            color: gray;
+        }
+        #result{
+            border: solid 1px;
+            border-radius: 20px;
+            width: 200px;
+            height: 150px;
+            position: relative;
+            left: 80px;
+            font-size: 100px;
+        }
+        .red{background-color: red;}
+        .orange{background-color: orange;}
+        .yellow{background-color: yellow;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+        .purple{background-color: purple;}
+        .black{background-color: black;}
+    </style>
+    <ul>
+        <li class="red" onclick="changeColor('red')"><a href="#"></a></li>
+        <li class="orange" onclick="changeColor('orange')"><a href="#"></a></li>
+        <li class="yellow" onclick="changeColor('yellow')"><a href="#"></a></li>
+        <li class="green" onclick="changeColor('green')"><a href="#"></a></li>
+        <li class="blue" onclick="changeColor('blue')"><a href="#"></a></li>
+        <li class="purple" onclick="changeColor('purple')"><a href="#"></a></li>
+        <li class="black" onclick="changeColor('black')"><a href="#"></a></li>
+    </ul>
+    <div id="result">000</div>
+    <script>
+        function changeColor(color){
+            let result = document.querySelector('#result');
+            result.style.color = color;
+        }
+    </script>
+</body>
+</html>

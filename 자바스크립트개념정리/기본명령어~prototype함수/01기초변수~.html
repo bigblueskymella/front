@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //💌변수 문자형
+    var a="javascript";
+    var num="100";
+    var tag="<h1> String </h1>"; //태그로 인식
+    console.log(a);
+    console.log(num);
+    console.log(tag);
+
+    //💌변수 숫자형
+       var s=100;
+       var t=Number("500");
+       console.log(s);
+       console.log(t);
+
+    //💌변수 논리형
+    var y=true;
+    var t=10>=100; //false
+    var k=Boolean("hello"); //빈문자외 모두 true
+    console.log(b);
+    console.log(t);
+    console.log(k);
+
+    var m=Boolean(0) //숫자는 false
+    var k=Boolean("홍길동")//문자는 true
+    console.log(m);
+    console.log(k);
+
+    //💌코딩해 보세요!
+    var a = true; //변수 a에 true저장!
+    var b = false;
+    var c = 10>5; //true
+    var d = Boolean(null); //false
+
+    document.write(a,"<br>");
+    document.write(b,"<br>");
+    document.write(c,"<br>");
+    document.write(d,"<br>");
+
+    //💌null과 undefined데이터
+    var s; //undefined 변수s에 값이 등록되기 전
+    var t = hello;
+    t = null; //지정된 값을 비우고자 할 때 사용
+    console.log(s);
+    console.log(t);
+
+    //💌typeof 어떤 자료형인지 알고 싶을때?
+    // var num = 100;
+    // var str = "자바스크립트";
+
+    // document.write(typeof num,"<br>");//number
+    // document.write(typeof str,"<br>");//string
+
+    //🔯💛연산자
+    var num1 = 15;
+    var num2 = 2;
+    var result;
+    result = num1 + num2;
+    document.write(result, "<br>"); //17
+    result = num1 - num2;
+    document.write(result, "<br>"); //13
+    result = num1 * num2;
+    document.write(result, "<br>"); //30
+    result = num1 / num2;
+    document.write(result, "<br>"); //7.5
+    result = num1 % num2;
+    document.write(result, "<br>"); //1 나머지
+
+//🔯💛 문자 결합 연산자
+var t1 = "동해물과";
+var t2 = "백두산이";
+var t3 = 1234;
+var t4 = "마르고 닳도록";
+var result;
+result = t1 + t2 + t3 + t4;
+document.write(result);
+
+//🔯💛 대입연산자 : 연산된 데이터를 변수에 저장
+//복합 연산자 : 산술 + 대입
+var num1 = 10;
+var num2 = 3;
+
+num1 += num2;
+document.write(num1, "<br>"); //13
+num1 -= num2;
+document.write(num1, "<br>"); //10
+num1 *= num2;
+document.write(num1, "<br>"); //30
+num1 %= num2;
+document.write(num1, "<br>"); //0
+
+//🔯💛  복합연산자 표만들기
+var str = "<table border='1'>";
+str += "<tr>";
+str += "<td>1</td><td>2</td><td>3</td>";
+str += "</tr>";
+str += "</table>";
+document.write(str);
+
+//🔯💛 증감연산자
+var num1 = 10;
+var num2 = 20;
+var result;
+
+num1--; //9
+document.write(num1, "<br>");
+
+num1++; //10
+document.write(num1, "<br>");
+
+result = num2++; //result:20, num2:21 
+document.write(result, "<br>");
+
+result = ++num2; //result:22, num2:22
+document.write(result, "<br>");
+
+////🔯💛 비교연산자
+var k = 10, m = "10";
+k == 10 //true
+m == 10 //true
+
+k === 10 //true 자료형까지 일치하는지 
+m === 10 //false 자료형다름 [숫자형/문자형]
+
+////🔯💛 해보세요!
+var a = 10;
+var b = 20;
+var c = 10;
+var f = "20";
+var result;
+
+result = a > b; //false
+document.write(result, "<br>");
+result = a < b; //true
+document.write(result, "<br>");
+result = a <= b; //true
+document.write(result, "<br>");
+result = b == f; //true 자료형 상관없어
+document.write(result, "<br>");
+result = a != b; //true
+document.write(result, "<br>");
+result = b === f; //false 자료형이 달라
+document.write(result, "<br>");
+
+//🔯💛논리 연산자
+var a = 10;
+var b = 20;
+var m = 30;
+var n = 40;
+
+var result;
+result = a>b||b>m||m>n;
+document.write(result, "<br>"); //53쪽 잡+쿼
+
+
+    </script>
+
+<body>
+    <h1>자바스크립트 기본 명령어 정리 (기초변수~)</h1>
+</body>
+</html>

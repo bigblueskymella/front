@@ -1,0 +1,48 @@
+
+
+section {
+    width: 100%;
+    padding: 20px 0;
+    border: 1px solid lightgray;
+    /*display: flex;*/   
+    
+}
+
+h2 {
+    margin-top: 100px;
+    color: rgb(94, 94, 94);
+    font-size: 14px;
+    text-align: center;
+    font-family: arial;
+    /*ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ*/
+}
+
+article img {
+    width: 200px;
+    height: 100px;
+    filter:grayscale(60%); /*흑백으로 살짝 */
+}
+
+h3 {
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p{
+    font-size: 12px;
+}
+
+.articleBox {
+    display: flex;
+    justify-content: center;    /*ㅁㅁㅁㅁㅁㅁㅁ이게문제였네*/
+}
+
+article {
+    font-size: 13px;
+    color: gray;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    justify-content: center;
+
+}

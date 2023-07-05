@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #accent{
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <div class="day1">
+        <h3>우리 만난 지</h3>
+        <p id="accent" class="accent"><span style="font-size: 2em;">일</span></p>
+    </div>
+    <div class="bar">기념일 계산</div>
+    <div class="day2">
+        <ul>
+            <li class="item-title">100일</li>
+            <li class="item-date" id="date100"></li>
+        </ul>
+        <ul>
+            <li class="item-title">200일</li>
+            <li class="item-date" id="date200"></li>
+        </ul>
+        <ul>
+            <li class="item-title">1년</li>
+            <li class="item-date" id="date365"></li>
+        </ul>
+        <ul>
+            <li class="item-title">500일</li>
+            <li class="item-date" id="date500"></li>
+        </ul>
+    </div>
+    <script>
+        // let now = new Date() //Date객체의 인스턴스를 만들고 now변수에 저장
+        // console.log(now);
+        // console.log(now.toLocaleString()); //함수이용. 표준시로 찍어줌.
+        
+        //콘솔창에 입력해보기. new Date()
+
+        let now = new Date(); //오늘날짜를 Date객체의 인스턴스 now객체로 만든다.
+        
+        let day = prompt('만날 날을 입력해주세요.', '2023-01-01');
+        let firstDay = new Date(day); //첫만난날을 firstDay객체로 만든다.
+
+        let toNow = now.getTime(); //오늘 날짜를 밀리초로 바꿈는 getTime함수.
+        let toFirst = firstDay.getTime(); //처음 만난 날을 밀리초로 바꿈.
+        let passedTime = toNow - toFirst; //처음 만난 날과 오늘 사이의 차이 (밀리초 값)
+        
+        let passedDay = Math.round(passedTime/(1000*60*60*24)); //밀리초를 날짜 수로 변환 후 반올림
+        document.querySelector("#accent").innerText = passedDay + "일"; //accent영역에 표시.
+    </script>
+</body>
+</html>

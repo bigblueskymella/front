@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <h2 id="title-1">Cat</h2>
+        <ul id="list-1">
+            <li>cat1</li>
+            <li>cat2</li>
+            <li>cat3</li>
+        </ul>
+        <h2 id="title-2">Dog</h2>
+        <ul id="list-2">
+            <li>dog1</li>
+            <li>dog2</li>
+            <li>dog3</li>
+        </ul>
+    </div>
+    <script>
+        const myTag = document.querySelector('#list-1');
+        console.log(myTag);
+
+        // innerHTML
+        // 요소 안에 있는 html 자체를 문자열로 리턴해줌
+        // 태그와 태그 사이의 들여쓰기와 줄바꿈 그대로
+        console.log(myTag.innerHTML);
+        // myTag.innerHTML = '<li>weird</li>'; // 수정
+        myTag.innerHTML += '<li>weird</li>';
+
+        // outerHTML
+        // 해당 요소를 포함한 전체 HTML 코드를 문자열로 리턴
+        // 태그와 태그 사이의 들여쓰기와 줄바꿈 그대로
+        console.log(myTag.outerHTML);
+
+        // textContent
+        // 요소 안에 있는 내용들 중에서 html을 제외한 텍스트만 가져옴
+        console.log(myTag.textContent);
+
+        myTag.textContent = 'new text!';
+        myTag.textContent = '<li>weird</li>';
+    </script>
+</body>
+
+</html>

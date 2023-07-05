@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="images/K-23.jpg" id="cover">
+    <script>
+        // let cover = document.getElementById("cover")
+        // cover.addEventListener("mouseover", changePic);
+        // cover.addEventListener("mouseout", originPic);
+
+        // function changePic(){
+        //     cover.src = "images/K-27.jpg";
+        // }
+        // function originPic(){
+        //     cover.src = "images/K-23.jpg";
+        // }
+
+        // 간단 버전
+        let cover = document.getElementById("cover")
+        cover.addEventListener("mousemove", function(){
+            cover.src = "images/K-27.jpg";
+        });
+        cover.addEventListener("mouseout", function(){
+            cover.src = "images/K-23.jpg";
+        });
+        
+    </script>
+</body>
+</html>

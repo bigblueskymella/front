@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKregTest.html</title>
+    
+    <script>
+        function myCheck(){
+            myt = document.myform.title.value; //document생략가능
+            if (myt=="" || myt==null){
+                alert('제목데이터 공백입니다\n정확한 데이터 기술이 필요합니다');
+                document.myform.title.focus(); //입력란에 초점
+                return ; //아래문장처리안하고 함수탈출 정답 return false;
+            }else{document.myform.pay.focus();}
+
+            //메일널체크 @포함여부확인
+            mail = myform.email.value; //메일데이터  
+            if(mail=="" || mail==null){
+                //alert("메일주소데이터가 공백입니다");
+                document.getElementById("email_ch").innerHTML="<font style='font-size:10pt;color:red'>*메일데이터가 공백입니다*</font>";
+                myform.email.focus();
+                return false;
+            }else{document.getElementById("email_ch").innerHTML="";}
+
+
+            //급여데이터 숫자만 입력
+            myp=myform.pay.value;
+            size = myform.pay.value.length;
+            if (myp=="" || myp==null){
+                alert('급여데이터 공백입니다');
+                document.myform.pay.focus();
+                return false; //return만 기술해도 됩니다
+            }
+
+            message = '제목데이터:' +  myt + ' 급여데이터:' + myp +'  메일데이터:'  +  mail;
+            document.getElementById('display').innerHTML='<h2>' + message +'</h2>';
+        }//end
+
+        function myClear(){
+          document.getElementById('display').innerHTML='';
+        }//end
+
+
+        function myNumberCheck(){
+            myp = myform.pay.value;  
+            size = myform.pay.value.length;
+            for(var i=0; i<size; i++){
+                if( myp.charAt(i)<'0' || myp.charAt(i)>'9'){
+                    alert('정확한 숫자를 입력하세요');
+                    myform.pay.value = myp.substring(0,i);
+                    myform.pay.focus();
+                }
+            }
+        }//end
+
+        function myEmailCheck(){
+           mail = myform.email.value; //메일데이터  
+           if(mail==null || mail==""){
+             document.getElementById("email_ch").innerHTML="<font style='font-size:10pt;color:red'>*메일데이터가 공백입니다*</font>";
+             myform.email.focus()
+             return false; //아래문장 처리안하고 탈출
+           }else{
+                //공백이 아니고 메일주소를 입력하면 정규식체크 
+                var mail_reg=/^([a-zA-Z0-9-_\.]{3,15})@([a-zA-Z]{2,15})\.([a-zA-Z]{2,10})$/;
+                if(mail_reg.test(mail)==false){
+                    document.getElementById("email_ch").innerHTML="<font style='font-size:10pt; color:red'>*sky@nate.com형식으로 입력하세요*</font>";
+                    myform.email.value="";
+                    myform.email.focus();
+                }else{
+                    document.getElementById("email_ch").innerHTML="";
+                    return false;
+                }
+           }
+        }//end
+
+    </script>
+</head>
+<body>
+    <h2>OKregTest.html화면등록</h2>
+    <div id="display"></div> 
+
+    <form name="myform"  method="get" >
+        제목: <input type="text" name="title" id="title" value="snow"> <br>
+        메일: <input type="text" name="email" id="email" onblur="myEmailCheck()"> 
+                <span id="email_ch"></span> <br>
+
+        급여: <input type="text" onkeyup="myNumberCheck()"  name="pay" id="pay" value="78"> <br>
+        <input type="button" onclick="myCheck()" value="데이터등록">
+        <input type="reset" onclick="myClear()"   value="입력취소">
+        <input type="button" onclick="" value="test">
+        </form>
+</body>
+</html>

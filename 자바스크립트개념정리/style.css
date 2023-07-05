@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box; /*박스 영역 테두리까지 지정*/
+}
+.container{
+    margin: 0 auto;/*화면 중앙 배치*/
+    width: 1200;
+}
+header{ /*헤더 영역*/
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.logo{ /*로고 영역*/
+    /*float: left;*/
+    width: 250px;
+    height: 100px;
+    background-color: indigo;
+}
+nav{ /*네비게이션 영역*/
+    /*float: right;*/
+    width: 900px;
+    height: 100px;
+    background-color: green;
+}
+.slideShow{ /*슬라이드 쇼 영역*/
+    /*clear: both; /*플로팅 해제*/
+    width: 1200px;
+    height: 300px;
+    overflow: hidden; /*영역 넘치면 감춤*/
+    position: relative;
+    justify-content: center;
+}
+/*.slides{
+    position:absolute;
+}*/
+.slides > img{
+    width: 100%;
+    float: left;
+}
+button{
+    position: absolute;
+    height: 100%; /*이미지 높이에 맞춤*/
+    top: 0;
+    border: none; /*테두리 없이*/
+    background-color: transparent; /*투명 배경*/
+    font-size: 50px;
+    font-weight: 800;
+    opacity: 0.5; /*화살표 반투명*/
+}
+#prev{
+    left: 0; /*왼쪽에 붙이기*/
+}
+#next{
+    right: 0; /*오른쪽에 붙이기*/
+}
+button:hover{
+    background-color: #222;
+    color: #fff;
+    opacity: 0.6;
+    cursor: pointer;
+}

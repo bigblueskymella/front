@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 150px;
+        }
+
+        section {
+            display: flex;
+        }
+
+        span {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2> 로고 사이트 제목 </h2>
+        <section id="news-board">
+            <!-- 뉴스 한 칸이 될 영역 시작 -->
+            <div>
+                <img src="https://t1.daumcdn.net/cfile/tistory/99C96E4C5A6E6D8E08" width="150">
+            </div>
+            <div>
+                <h3> 뉴스의 제목 </h3>
+                <article> 뉴스 내용 어디서 부터 온 내용 </article>
+                <span>뉴스의 정보</span>
+            </div>
+            <!-- 뉴스 한 칸이 될 영역 끝 -->
+        </section>
+
+    </div>
+
+    <script>
+        // 뉴스 데이터들을 넣어 줄 배열
+        let news = []; 
+        
+        // api불러오는 부분
+        async function postData(url = '', data = {}) {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'KakaoAK ab44543239760acabf8e5a55b74860d5'
+                },
+            });
+            return response.json();
+        }
+
+        postData('https://dapi.kakao.com/v2/search/web?query=날씨', { answer: 42 })
+            .then((data) => {
+                console.log(data); // JSON data parsed by `data.json()` call
+
+                render(); //그려줄 함수
+            });
+
+        const render = () => {
+            let newsHTML = '';
+            newsHTML = news.map(item =>{
+                return `<div>
+                <img src="https://t1.daumcdn.net/cfile/tistory/99C96E4C5A6E6D8E08" width="150">
+            </div>
+            <div>
+                <h3> 뉴스의 제목 </h3>
+                <article> 뉴스 내용 어디서 부터 온 내용 </article>
+                <span>뉴스의 정보</span>
+            </div>`;
+            }).join(''); //배열의 콤마, 부분을 없애준다.
+
+            document.getElementById("news-board").innerHTML=newsHTML;
+        }
+
+    </script>
+</body>
+
+</html>

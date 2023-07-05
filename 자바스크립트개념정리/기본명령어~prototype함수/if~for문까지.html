@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #result{
+    width: 300px;
+    height: 100px;
+    border: solid 1px;
+  }
+</style>
+<body>
+    <div id="result">    </div>
+    <script>
+
+        ////////🌻if문 입문 92쪽
+        // let number = prompt("숫자 입력하세요.");
+        // if (number < 0) {
+        //     alert("0 이상의 수를 입력하세요");
+        // }else{
+        //     document.write("입력한 숫자: " + number);
+        // }
+        
+        // 1분 복습🍀🍑
+        // 변수 age값이 18보다 크거나 같으면 "성인입니다."
+        // 그렇지 않으면 "미성년입니다."라고 알림 창에 표시하는 소스 작성해보세요.
+
+        // let age = prompt ("나이를 입력하세요.");
+        // if(age>=18){
+        //     alert("성인입니다.");
+        // }else{
+        //     alert("미성년입니다.");
+        // }
+
+        //🍫🍫🍋null의 올바른 뜻은? 유효하지 않은 값
+        //undefined : 값이 할당되지 않음.
+
+        // 삼항연산자 : 
+        // 조건? true일 때 실행 : false일 때 실행
+
+        //
+        // let inputS = prompt("이름을 입력하세요.");
+        // if(inputS) {
+        //     alert("이름을 입력했습니다 : " + inputS);
+        // }else{
+        //     alert("이름을 입력하지 않았습니다.");
+        // }
+
+        //  🍑3의 배수 검사기 만들기
+        //   let userNumber = prompt("숫자를 입력하세요.");
+        //   let displayArea = document.querySelector('#result');
+        //   //자바스크립트에서는 웹문서 안의 어떤 요소도
+        //   //변수로 지정하고 프로그램에서 사용할 수 있습니다.
+
+        //   if (userNumber != null){
+        //     if (userNumber % 3 === 0){
+        //       displayArea.innerHTML = userNumber + "은 3의 배수입니다.";
+        //     }else{
+        //       displayArea.innerHTML = userNumber + "은 3의 배수가 아닙니다.";
+        //     }
+        //   }else{
+        //     alert("입력이 취소되었습니다.");
+        //   }
+
+          //🍑여러 종류 조건값과 비교해야 하는 경우 switch문
+
+          // let session = prompt("관심 세션을 선택해 주세요. 1-마케팅, 2-개발, 3-디자인", "1");
+          // switch(session){
+          //   case "1" : document.write("<p>마케팅 세션은 <strong> 201호</strong>에서 진행됩니다.</p>");
+          //     break;
+          //   case "2" : document.write("<p>개발 세션은 <strong> 203호</strong>에서 진행됩니다.</p>");
+          //     break;
+          //   case "3" : document.write("<p>디자인 세션은 <strong> 205호</strong>에서 진행됩니다.</p>");
+          //     break;
+          //   default: alert("잘못 입력했습니다.");
+          // }
+
+          //🍑 반복문 for문 // 1~10까지 더하는 소스.
+          // let sum = 0;
+          // sum += 1;
+          // sum += 2;
+          // sum += 3;
+          // sum += 4;
+          // sum += 5;
+          // sum += 6;
+          // sum += 7;
+          // sum += 8;
+          // sum += 9;
+          // sum += 10;
+          // document.write("1~10까지 더하면" + sum); //100까지 더하면? for문이 필요하다.
+
+            // let sum = 0; 
+            // for(let i = 1; i< 11; i++){ //카운터 변수 선언/ for문의 조건식/ 카운터 변수 조절
+            //   sum += i; //반복 실행할 자바스크립트 소스
+            // }
+            // document.write("1~10까지 더하면" + sum); 
+            
+            //카운터 변수 i : 보통 i로 씁니다. 쓰기 전 반드시 초기화 해야. 
+
+            //🍑1분 복습 1~100까지 더하는 for문을 작성하세요.
+
+              //ES6에서는 for of문으로 배열 순회
+              //for문을 사용한 반복은 인덱스 값을 기준으로 반복하지만
+
+              // let seasons = ["봄", "여름", "가을", "겨울"];
+              // for(let value of seasons){
+              //   console.log(value);
+              // }
+
+              //🍑별 찍기
+              // for(let i=0; i<31; i++){
+              //   document.write('*');
+              // }
+              // document.write("<br>");
+              // for(let i=0; i<30; i++){
+              //   document.write('*');
+              // }
+              // document.write("<br>");
+              // for(let i=0; i<29; i++){
+              //   document.write('*');
+              // }
+              // document.write("<br>");
+              // for(let i=0; i<28; i++){
+              //   document.write('*');
+              // }
+              // document.write("<br>");
+              // for(let i=0; i<27; i++){
+              //   document.write('*');
+              // }
+//🍑별 다섯줄 찍을 때
+                // for (let i=0; i<5; i++){
+                //   for( let j=0; j<30; j++){
+                //     document.write('*');
+                //   }
+                //   document.write("<br>");
+                // }
+
+              //for문 🍑구구단 프로그램
+
+                // for(let i=2; i<=9; i++){
+                //   document.write("<h3>" +i+ "단</h3>");
+                //   for (let j=1; j<=9; j++){
+                //     document.write(`${i}X${j}=${i*j}<br>`); //표기법.
+                //   }
+                //   document.write("</div>");
+                // }
+                //🍑5단까지만 나오게 하려면 어느 부분을 수정해야 할까요?
+                //꾸며보기.
+
+                //🍑while문, do...while문 입문114쪽
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //🍒함수 선언 방법
+        // function addNumber(a, b){
+        //     let sum = a + b;
+        //     console.log(sum);
+        // }
+        // addNumber(2,3);
+
+        //🍒함수 사용하기 입문137쪽
+        // let num1 = parseInt(prompt("첫 번째 숫자는?"));
+        // let num2 = parseInt(prompt("두 번째 숫자는?"));
+        // addNumber(num1, num2) //값 2개와 함께 함수 실행
+
+        // function addNumber(a,b){
+        //     let sum = a + b;
+        //     alert("두 수를 더한 값은" +sum+"입니다.");
+        // }
+
+        //🍒함수 매개변수 기본 값 지정하기
+        // function multiple(a, b=5, c=10){
+        //     return a * b + c;
+        // }
+        // console.log(multiple(5, 10, 20));
+        // console.log(multiple(10, 20))
+        // console.log(multiple(30))
+
+
+        // 🍒함수의 return문 알아보기 / 처리순서 번호순
+            //결과값을 함수 밖으로 넘기는 것 '함숫값을 반환한다.' 
+        // let num1 = parseInt(prompt("첫 번째 숫자는?")); //1🍚각 변수에 값 저장 
+        // let num2 = parseInt(prompt("두 번째 숫자는?")); //1🍚 각 변수에 값 저장
+        // let result = addNumber(num1, num2); //2.함수 호출  //6.🍚 반환된 값 변수 result에 저장 
+        // alert("두 수를 더한 값은 " + result + "입니다."); //7.🍚 result변숫값 화면에 표시
+
+        // function addNumber(a,b){ // 3.🍚 함수 선언부로 넘어와 함수 실행 num1은 a변수로, num2는 b변수로 넘겨짐
+        //     let sum = a + b; // 4.🍚 a + b더해 sum변수에 저장
+        //     return sum; // 5.🍚 결괏값 sum을 반환 //6. 
+        // }
+        
+        //🥗🌵🌿함수표현식
+        //🍒익명함수
+        // let add = function(a, b){
+        //     return a + b;
+        // }
+
+        // let sum = add (10, 20);
+        // console.log(sum)
+
+        //🍒즉시 실행 함수
+        // let result = (function(){
+        //     return 14 + 10;
+        // }());
+        // console.log(result);
+
+        //🍒화살표 함수
+        // const hi = function(){
+        //     return "안녕하세요?";
+        // }
+        // const hi2 = () => {return "안녕하세요?"};
+        // const hi3 = () => "안녕하세요?";
+
+        //🍒매개변수 1개일때 아래 두가지방법
+        // let hi = (function(user){
+        //     document.write(user + "님, 안녕하세요?");
+        // }())
+
+        // let hi2 = user => document.write(user + "님, 안녕하세요?") ();
+
+
+        /////////////// 🍟🍚  마무리 문제 //////////////
+        //매개변수 있는 바로 실행함수
+        // (function(a,b){
+        //     sum = a + b; 
+        // }(100, 200));
+        // document.write("결과" +sum);
+
+
+        /////// 🍚x와 y가 같으면 곱하고, 아니면 더한다/////
+        function sumMulti(x,y){
+            if(x == y){
+                let result = x * y;
+                return result;
+            }else{
+                let result = x + y;
+                return result;
+            }
+        }
+        console.log(sumMulti(5,10));
+    </script>
+</body>
+
+</html>

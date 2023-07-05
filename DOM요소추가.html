@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .accent{
+        color: red;
+        border: solid ;
+        background-color: beige;
+    }
+
+    #accent2{
+        background-color: lightblue;
+    }
+
+</style>
+<body>
+    jkl;
+    <script>
+        let newP = document.createElement("p");
+        let newText = document.createTextNode("주문이 완료되었습니다.");
+        newP.appendChild(newText) //자식노드 추가하기 //자식 노드 중 맨 끝에 추가. 입문266쪽
+        document.body.appendChild(newP) //바디 태그안에 추가 // newP노드를 body노드의 자식노드로 추가
+
+        let attr = document.createAttribute("class") //새로운 속성 노드 만들기.
+        attr.value = "accent" //속성값
+        newP.setAttributeNode(attr) //p와 연결
+        // newP.setAttribute("class", "accent") //위 3줄과 같다.
+
+        //😍😍퀴즈!! id="someT" 속성 추가. accent2라는 속성노드 만들고 속성 값 지정
+        let newP2 = document.createElement("h5");
+        let newText2 = document.createTextNode("두번째 테스트.");
+        newP2.appendChild(newText2)
+        document.body.appendChild(newP2)
+
+        let someT = document.createAttribute("id")
+        someT.value = "accent2"
+        newP2.setAttributeNode(someT)
+        
+
+    </script>
+</body>
+</html>

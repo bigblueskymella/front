@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03forstar.html</title>
+
+    <script>    
+        function mystar(){
+            for(a=0;a<6;a++){      //큰회전 6바퀴  첫번째 a=0 큰바퀴돌때  b작은바퀴은 0부터시작,a까지0
+                for(b=0;b<a;b++){  //a=0, b범위(0,0) 처리못함  a=1,b범위(0,1)처리
+                    document.write("★ ")
+                }
+                document.write('<br>'); //한줄단위로 엔터라인개행
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>03forstar.html</h2>
+    <div id="display"></div> 
+    <input type="button" onclick="mystar()" value="데이터결과확인">
+</body>
+</html>

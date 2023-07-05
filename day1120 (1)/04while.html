@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04while.html</title>
+
+    <script>    
+        function mynumber(){
+            su=0;
+            while(true){
+                su=su+1;
+                document.write(su + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                if(su%5==0){
+                   document.write('<br>');
+                }
+                if(su==30){break;}
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>04while.html</h2>
+    <div id="display"></div> 
+    <input type="button" onclick="mynumber()" value="숫자출력">
+</body>
+</html>

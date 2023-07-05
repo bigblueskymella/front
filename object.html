@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    
+    <script>
+        let phone = {
+            name : "apple8",
+            year : 2020,
+            color : "pink"
+        }
+
+        console.log(phone);
+        console.log(phone.name);
+        console.log(phone["name"]); //윗줄과 같다. (이렇게 불러낼 수 있다.)
+        phone.name = "galaxyS21" //이름을 바꾸는 방법.
+        phone.year = 2021; //이름을 바꾸는 방법.
+        console.log(phone);
+
+        //oop 객체지향형 프로그래밍 방식. Object Oriented Programming
+        //지금은 객체라는 자료형을 배우는 것
+        //😊객체를 배열 형태로 만드는 방법.
+        //let phoneList = [{},{},{}];
+        let phoneList = [
+            {name : "apple8",
+            year : 2020,
+            color : "pink"},
+            {name : "galaxyS21",
+            year : 2021,
+            color : "black"},
+            {name : "iPad",
+            year : 2017,
+            color : "white"}
+        ];
+        console.log(phoneList);
+        console.log("첫번째 폰은 : ", phoneList[0]);
+        console.log("첫번째 폰의 출시 년도는 : ", phoneList[0].year);
+        console.log("세번째 폰의 출시 년도는 : ", phoneList[2].year);
+
+
+    </script>
+</body>
+</html>

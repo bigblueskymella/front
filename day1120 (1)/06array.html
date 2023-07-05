@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06array.html</title>
+
+    
+    <script>
+        function myemp(){
+            var fruits=["블루","오렌지","체리","망고"];
+            var emp = [ 
+                       {"name":"아마존", "age":9}, 
+                       {"name":"네이버", "age":15}, 
+                       {"name":"카카오", "age":13}
+                    ];
+
+           
+            var data = "" ;
+            for(var i=0; i<fruits.length; i++){ data  += fruits[i] + "<br>";  } 
+            //for( j in fruits){ data  += fruits[j] + "<br>";  }
+            //document.getElementById("display").innerHTML = data;
+
+            var msg = "";
+            for(var i=0; i<emp.length; i++){ 
+               msg += emp[i].name + " " + emp[i].age +"<br>";
+           }
+           document.getElementById("display").innerHTML = msg;
+        }
+    </script>
+</head>
+<body>
+    <h2>06array.html</h2>
+    <div id="display"></div> 
+    <input type="button" onclick="myemp()" value="배열emp">
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 명령어</title>
+</head>
+<body>
+    <script>
+        //😊아래 한줄씩 입력해보기.
+        //prompt('출력 페이지 수를 입력하세요!', '');//''는 작은 따옴표 두 개
+        //alert ('자바스크립트');
+        document.write('자바스크립트');
+        console.log('자바스크립트');
+        //confirm('정말 삭제 하시겠습니까?');
+
+        //😊변수에 대해서
+        var num = 10;
+        var str = 'javascript';
+        var temp = true;
+        document.write(num + '<br>' + str + '<br>' + temp + '<br>');
+        //br같은 태그들을 문자로 ''표현합니다.
+
+        //😊퀴즈! 이렇게 해보세요.
+        var test1 = '안녕하세요';
+        var test2 = '또 만났네요';
+        document.write(test1  + test2 + '<br>');
+        
+        //😊var의 단점은?
+        var test1 = '솥뚜껑 ';
+        document.write(test1 + test2 +'<br>'); // 이렇게 덮어 씁니다. let은 덮어쓸 수 없으며
+        // 블록{}에서도 차이점이 있습니다. 전역변수와 지역변수
+        let test3 = 300;
+        //let test3 = 400;
+        document.write(test3); //중복 선언시 오류발생! 에러 확인해보기.
+
+        //😊지역local변수와 전역global변수
+        // var kor = 90;
+        // function getScore(){
+        //     kor = 100; //🥵전역 변수(var없다)
+        //     console.log(kor); //100
+        // }
+        // getScore();
+        // console.log(kor); //100 
+
+        // var eng = 80;
+        // function getScore(){
+        //     var eng = 100; //🥵지역 변수 var로 선언함. {}블록 밖에서 사용할 수 없다.
+        //     console.log(eng); //100
+        // }
+        // getScore();
+        // console.log(eng); //80
+
+        function getScore(){
+            var kor = 100;
+            console.log(kor); //100
+        }
+        getScore(); //🥵함수실행 반드시 실행해줘야 한다.
+        //console.log(kor); //에러 🥵지역변수 
+        //블록{}에 의해 변수의 범위가 달라지는 것을 🥵변수의 scope라고 한다.
+         
+        //함수 레벨 스코프function level scope와 블록 레벨 스코프 block level scope
+        var numS = 33;
+        {
+            var numS = 44; //numS는 😐var전역 변수 (함수아님)
+            console.log(numS); //44
+        }
+        console.log(numS); //44
+
+
+        let numSc = 33;
+        {
+            let numSc = 44; //numS는 😐let지역 변수
+            console.log(numSc); //44
+        }
+        console.log(numSc); //33
+
+
+        const numSco = 33;
+        {
+            const numSco = 44; //numSco는 😐const지역 변수
+            console.log(numSco); //44
+        }
+        console.log(numSco); //33
+        
+///////////////////////////변수의 범위 예제🍊🍊
+        // 🍊함수의 전역변수
+        var sum1 = 10;
+        function add1(){
+            sum1 = 20;
+        }
+        add1();
+        console.log('전역' + sum1); //전역20
+
+
+        //🍊함수의 지역변수
+        var sum2 = 30;
+        function add2(){
+            var sum2 = 40;
+            console.log('지역' + sum2); //지역40
+        }
+        add2();
+        console.log('전역' + sum2) ; //전역30
+
+
+        //🍊블록의 지역변수 
+        var num1 = 50;
+        if (num1 === 50){
+            var num1 = 60;
+        }
+        console.log('전역' + num1); //전역60
+        let num2 = 70;
+        if (num2 === 70){
+            let num2 = 80;
+            console.log('지역' + num2); //지역80
+        }
+        console.log('전역' + num2); //전역70
+
+
+//🌍🌍🌍클로져 개념
+        function add(){
+            var n = 0;
+            return function(){
+                return ++n;
+            }
+        }
+        var increase = add(); // 함수를 변수로 // 익명함수
+        //var increase = function(){return ++n;} //윗줄과 같다.
+        console.log(increase()); //1
+        console.log(increase()); //2
+        //🍊🍊클로져: 함수내 지역변수를 함수밖에서도 지속적으로 참조할 수 있게 만들어 준다.🍊
+
+//🌍🌍🌍클로져 예제
+        function multiply(n){
+            return function(){
+                return n *= n;
+            }
+        }
+        var num7 = multiply(10);
+        console.log(num7()); // 10*10 =100
+        console.log(num7()); // 100*100=10000
+        var num8 = multiply(20);
+        console.log(num8()); // 20*20 =400
+        console.log(num8()); // 400*400 = 160000
+
+
+//🌍🌍🌍재귀 함수 : 함수 안에서 자신의 함수를 다시 호출하는 함수
+        function factorial(n){
+            if(n===0){
+                console.log('호출 끝');
+            }else{
+                console.log('호출' + n);
+                factorial(n-1);
+            }
+        }
+        factorial(10);
+
+
+//내장 함수 :
+    //🌍🌍인코딩, 디코딩함수
+        var encodeStr = '자바스크립트';
+        console.log(encodeURIComponent(encodeStr));
+        var decodeStr = encodeURIComponent(encodeStr);
+        console.log(decodeURIComponent(decodeStr));
+    // URL주소 쿼리 정보를 전송하여 데이터를 처리해야 되는 프로그램의 경우
+    // 한글과 같은 유니코드 문자 포함되어 있으면 오류 발생
+    // 이런 경우 인코딩 함수를 이용 문자를 부호화시키고
+    // 디코딩 함수 이용해서 원래 문자로 되돌릴 수 있다.
+
+
+    //🌍🌍숫자, 유한무한 값 판별 함수
+        var num9 = '숫자';
+        if (!isNaN(num9)){ //숫자인지 아닌지 판별함수 Not a Number
+            console.log('숫자');
+        }else{
+            console.log('숫자아님');
+        }
+        var num10 = 1/0;
+        if(isFinite(num10)){ //유한값인지 판별함수
+            console.log('유한값');
+        }else{
+            console.log('무한값');
+        }
+
+
+    //🌍🌍숫자, 문자 변환 함수
+        let num13 = '10'; 
+        console.log(Number(num13)); //Number()숫자로 변환해주는 함수
+        let num14 = '100px';
+        console.log(parseInt(num14)); //parseInt는 정수부분만 숫자로 변환해주는 함수
+        let num15 = '33.3%';
+        console.log(parseFloat(num15)); //소수 부분까지 숫자로
+        let num16 = 10;
+        console.log(typeof String (num16)); //문자로 바꿔주는 함수
+ 
+        
+    //🌍🌍문자를 자바스크립트 코드로 변경해 주는 함수
+        let str1 = 'var num7 = 33';
+        let str2 = 'var num8 = 44';
+        eval(str1);
+        eval(str2);
+        console.log(num7 + num8);
+
+    </script>
+</body>
+</html>

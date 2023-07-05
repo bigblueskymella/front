@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    function clickName(){
+        name = prompt('이름을 입력해주세요.');
+        // divA = document.getElementById("register").innerHTML = `당신의 이름은 ${name}`;
+        //name = '미란';
+        document.getElementById("nameA").innerHTML += (name); //😋😁
+    }
+
+        function regDiv(){ //인사버튼
+            divA = document.getElementById("register");
+            // document.write("Hello World!"); // 새로고침됨
+            alert("say hi");
+        }
+        // document.write("안녕")
+    </script>
+
+</head>
+<body>
+    <div id="register">
+        <img src="https://icon.hompys.com/blog/attach/1/nn090000000348.gif" alt="">
+        <button onclick="regDiv()"> 인사 버튼</button><br>
+        <div id="nameA">이름입력공간 : </div><br>
+        
+        <!--<button onclick="clickName()">이름입력버튼</button>-->
+        
+        <form action="123.php" method="get">
+            <label for=""> 이름:<input type="text" autofocus></label><br>
+            
+            급여:<input type="text"> <br>
+
+            <button>제출</button>
+            <input type="reset"> 다시 작성</button> 
+        </form>
+    </div>
+</body>
+</html>

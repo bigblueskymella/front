@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        // ECMAScript 2015(ES6)에서 새로 추가된 class 구문
+        // 앞의 내용을 통하여 객체 생성과 상속에 관한 내용들을 학습해 보았습니다.
+        // class는 기존에 사용했던 객체 생성과 상속 구문을 체계적인 객체지향 구문으로 보완하였다.
+        class SubjectInfo{
+            constructor(subject, credit){ //과목, 학점
+                this.subject = subject;
+                this.credit = credit;
+                this.days = [80, 120, 140];
+                this.day = this.days[0];
+            }
+            printOut(){
+                return '과목: ' + this.subject + ', 학점: '+this.credit+',수업일: '+this.day;
+            }
+            get lessonTime(){
+                return this.day;
+            }
+            set lessonTime(num){
+                this.day = this.days[num];
+            }
+        }
+        let sub1 = new SubjectInfo('html', 1);
+        console.log(sub1.subject);
+        console.log(sub1.printOut());
+        console.log(sub1.lessonTime); //get lessonTime() -> this.days[0]
+        sub1.lessonTime = 1; //set lessonTime() -> this.days[1]
+        console.log(sub1.lessonTime);
+        let sub2 = new SubjectInfo('css', 2);
+        console.log(sub2.subject);
+        sub2.lessonTime = 2;
+        console.log(sub2.printOut());
+    </script>
+</body>
+</html>

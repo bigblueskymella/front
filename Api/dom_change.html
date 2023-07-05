@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        background: lightblue;
+    }
+</style>
+
+<body>
+    <div id="main">안녕하세요?</div><br />
+    <input type="button" value="클릭해 보세요!" onClick="print('Hi, Everyone!')">
+    
+    <script>
+        function print(msg) {
+            let myDiv = document.getElementById("main");
+            myDiv.innerHTML=msg;
+        }
+    </script>
+</body>
+
+</html>

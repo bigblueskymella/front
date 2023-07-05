@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myText" placeholder="여기에 이름 입력하세요.">
+    <button onclick="insertN()">이름 붙이기</button>
+    <button onclick="deleteN()">다 지우기</button>
+    <ul id="addName">
+
+    </ul>
+</body>
+<script>
+    function insertN(){
+        let list = "<li>";
+        let textValue = document.getElementById("myText").value;
+        
+        document.getElementById("textValue").innerHTML += list;
+
+    }
+</script>
+</html>

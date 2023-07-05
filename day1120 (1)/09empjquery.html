@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <title>09empjquery.html</title>
+
+    
+    <script>
+        function myemp(){
+            var fruits=["블루","오렌지","체리","망고"];
+            var emp = [ 
+                       {"name":"아마존", "age":9}, 
+                       {"name":"네이버", "age":15}, 
+                       {"name":"카카오", "age":13}
+                    ];
+
+           
+            var data = "" ;
+            emp.forEach(function(item, index){
+                data += index+" : "+item.name+" "+item.age+"<br>"; //정답ok
+               // data += index+" : "+item["name"]+" "+item["age"]+"<br>"; ////정답ok
+             });
+             document.getElementById("display").innerHTML = data;
+
+
+             ///////////////////////////////////////////////////////////////////////////
+             //jQuery접근
+             var my="";
+             $.each(emp, function(index,item){
+               my +=  item.name + " "+ item.age  + "<br>";
+             })
+             $("#display").html(my);
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <h2>09empjquery.html</h2>
+    <div id="display"></div> 
+    <input type="button" onclick="myemp()" value="jQuery배열emp">
+</body>
+</html>

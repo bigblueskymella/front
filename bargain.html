@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>할인 가격 구하기</title>
+    <link rel="stylesheet" href="css/bargain.css">
+    <style>
+        .contents {
+            display: flex;
+            border: solid 1px saddlebrown;
+            border-radius: 20px;
+            background-color: beige;
+            width: 520px;
+            padding: 5px;
+        }
+
+        img {
+            width: 200px;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        li {
+            line-height: 2;
+        }
+        .showResult{
+            width: 520px;
+            height: 100px;
+            padding: 5px;
+            background-color: burlywood;
+            border-radius: 20px;
+            border: solid 1px saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contents">
+        <img src="https://nebula.org/blog/wp-content/uploads/2020/04/ancestry-sale.png">
+        <ul>
+            <li>
+                <label for="oPrice">원래 가격</label>
+                <input type="text" id="oPrice">원
+            </li>
+            <li>
+                <label for="rate">할인율</label>
+                <input type="text" id="rate">%
+            </li>
+            <li>
+                <button onclick="showPrice()">할인 가격 계산하기</button>
+            </li>
+        </ul>
+    </div>
+        <div class="showResult"></div>
+    
+
+    <script>
+        function showPrice() {
+            let $originPrice = document.querySelector('#oPrice').value;  // 원래 가격
+            let $rate = document.querySelector('#rate').value; // 할인율 
+            let savedPrice = $originPrice * ($rate / 100);  // 할인 금액
+            let resultPrice = $originPrice - savedPrice;  // 원래 가격에서 할인 금액을 뺀 최종 가격			
+            document.querySelector('.showResult').innerHTML = "상품의 원래 가격은 " + $originPrice +
+                "원이고, 할인율은 " + $rate + "%입니다.<br>"
+                + savedPrice + "원을 절약한 " + resultPrice + "원에 살 수 있습니다.";
+        }
+		// if문 삭제했습니다.
+    </script>
+</body>
+
+</html>

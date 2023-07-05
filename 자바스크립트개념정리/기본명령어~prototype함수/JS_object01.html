@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정의 객체</title>
+</head>
+<body>
+    <script>
+        //사용자 정의 객체
+        //객체는 객체 리터럴과 객체 생성자 함수로 만들 수 있다.
+        //object literal / Object constructor function
+        //아래는 객체 리터럴 Object literal
+        let info = {
+            subject: 'css',
+            credit: 1,
+            printOut: function(){
+                return info.subject + ', ' + info.credit + '학점';
+                return this.subject + ', ' + this.credit + '학점'; //this로 쓸수있다.
+            }                                       //자신의 객체를 의미 this
+        };
+        console.log(info.subject);
+        console.log(info.credit);
+        console.log(info.printOut());// *()빼놓지않고 쓰기. 함수실행
+
+        info.days = 22; // 🍊속성 추가
+        console.log(info.days);
+
+        delete info.credit; //🍊속성 삭제
+        console.log(info.credit); //undefined
+
+        info.printOut = function(){ //🍊속성 변경
+            return this.subject + ', ' + this.days + '일';
+        };
+        console.log(info.printOut()); //css, 22일
+ 
+ 
+        ////🥤🧊객체 만들기 퀴즈// 입문194쪽
+        let person = {
+            id:778,
+            name: '홍길동',
+            age: 27,
+            address: '서울'
+        }
+
+        document.write("<h2>" + person.name + "</h2>");
+        document.write("<ul><li>id: " + person.id + "</li>");
+        document.write("<li>나이: " + person.age + "</li>");
+        document.write("<li>주소: " + person.address + "</li></ul>");
+
+
+//Symbol (심볼)데이터
+//ES6에서 새로 추가된 원시 데이터 타입으로 유일한 식별자를 의미
+// 동일한 객체의 속성명에 대한 충돌 방지
+
+        let info2 = {
+            subjectName : '자바스크립트',
+            subjectName : '제이쿼리'
+        }
+        console.log(info2.subjectName);
+
+        let subjectName = Symbol(); 
+        let info3 = {
+            [subjectName] : '자바스크립트',
+            subjectName : '제이쿼리'
+        }
+        console.log(info3[subjectName] + ', ' + info2.subjectName); //둘다나옴
+
+//객체 생성자 함수(Object constructor function)     -수정파일은 JS_object02에
+        function Info4(subject, credit){ //Info4를 통해// 함수명의 첫 문자 대문자로
+            this.subject = subject; //this는 함수를 통해 생성되는 객체를 의미.
+            this.credit = credit;
+            this.printOut = function(){
+                return this.subject + ', ' + this.credit + '학점';
+            };
+        };
+        let sub1 = new Info4('html', 1); // sub1 객체와
+        console.log(sub1.subject);
+        console.log(sub1.credit);
+        console.log(sub1.printOut());
+
+        let sub2 = new Info4('css', 2); //sub2 객체가 생성된 예.
+        console.log(sub2.subject);
+        console.log(sub2.credit);
+        console.log(sub2.printOut());
+    </script>
+</body>
+</html>

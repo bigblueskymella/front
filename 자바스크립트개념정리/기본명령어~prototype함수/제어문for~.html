@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //💛제어문 <단순 if>
+        let c=2, d=3;
+        document.write("c값=" +c+ "이다.<br>")
+        document.write("d값=" +d+ "이다.<br>")
+        if(c<d)
+            document.write("c는 d보다 작다.<br><br>")
+        if(c<d){
+            document.write("c는 d보다 작다.<br>")
+            document.write("d는 c보다 크다.<br>")
+        }
+
+        //💛if else예제
+        let a = 10, b=20;
+        document.write("a값 =" +a+ "이다.<br>");
+        document.write("b값 =" +b+ "이다.<br><br>");
+
+        if(a<=b)
+            document.write("a는 b보다 작습니다.<br><br>");
+        else 
+            document.write("a는 b보다 큽니다.<br><br>");
+        
+        if(a>=b){
+            document.write("a는 b보다 큽니다.<br>");
+            document.write("b는 a보다 작습니다.<br>");
+        }else{
+            document.write("a는 b보다 작습니다.<br>");
+            document.write("b는 a보다 큽니다.<br>");
+        }
+
+        //💛do while한번 실행하고
+        var i=20;
+        document.write("i의 값은 = "+i+"이다.<br><br>");
+        document.write("do while연산을 실행한 결과<br>");
+        do{
+            document.write("[루프 내부]i의 값 = " +i+ "이다.<br>");
+            i++; // i=i+1;
+        }while(i<=25);
+        document.write("<br>[루프 외부] i의 값 = " +i+ "이다.<br><br>");
+
+        //💛다중if else
+        let score = 97;
+        if(score >= 90)
+            document.write("당신의 성적은 '수'입니다.");
+        else if(score >= 80)
+            document.write("당신의 성적은 '우'입니다.");
+        else if(score >= 70)
+            document.write("당신의 성적은 '미'입니다.");
+        else if(score >= 60)
+            document.write("당신의 성적은 '양'입니다.");
+        else
+            document.write("당신의 성적은 '가'입니다.");
+
+        //while :주어진 조건이 만족하는 한 while내의 문장들 반복 실행
+        let k=50;
+        document.write("k의 값= " +i+ "입니다.")
+    </script>
+</body>
+</html>

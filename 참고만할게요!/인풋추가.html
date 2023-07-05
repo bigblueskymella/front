@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>공부 계획표</h1>
+        <p>공부할 주제를 기록해보세요.</p>
+        <form>
+            <input id="subject" type="text" autofocus>
+            <button onclick="newRegister();  return false;">추가</button>
+        </form>
+        <hr>
+        <ul id="itemList"></ul>
+        <script>
+            function newRegister() {
+                let newItem = document.createElement('li');
+                let subject = document.querySelector('#subject');
+                newItem.textContent = subject.value;
+
+                let itemList = document.querySelector('#itemList');
+                itemList.append(newItem);
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02testkoreng.html</title>
+
+    <script>
+        //함수가 없으면 자동 실행됩니다 F12
+        kor=90;
+        eng=85;
+        message='시험결과';
+                
+        hap=kor+eng; 
+        avg=hap/2;
+        if(avg>=70){message='축합격';}
+        else{message='재시험';}
+
+        console.log(hap); //175
+        console.log(avg); //78.5
+        console.log(message);
+    
+    
+        function myinfo(){
+            info='국어='+kor+' 영어='+eng+' 결과는 '+ message ;
+            document.getElementById('display').innerHTML='<h3>' + info +'</h3>';
+        }
+    </script>
+</head>
+<body>
+    <h2>02testkoreng.html계산</h2>
+    <div id="display"></div> 
+    <input type="button" onclick="myinfo()" value="데이터결과확인">
+</body>
+</html>

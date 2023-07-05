@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>오늘 할 일</h1>
+    <ol id="today">
+        <li>HTML 공부</li>
+        <li>CSS 공부</li>
+        <li>Javascript 공부</li>
+    </ol>
+    <br>
+
+    <h1>내일 할 일</h1>
+    <ol id="tomorrow">
+        <li>jQuery 공부</li>
+        <li>Java 공부</li>
+        <li>Python 공부</li>
+    </ol>
+
+    <script>
+
+// 요소 노드 추가하기
+// 요소 노드를 직접 생성해서 그 요소만 필요한 곳에 추가
+const today = document.querySelector('#today');
+
+// 3단계
+// 1. 요소 노드 만들기: createElement('태그이름');
+const first = document.createElement('li');
+
+// 2. 요소 노드 꾸미기: textConent, innerHTML, ..
+first.textContent = '처음';
+
+// 3. 요소 노드 추가
+// NODE.prepend(), append(), after(), before()
+
+// prepend()
+today.prepend(first);
+
+// append()
+const last = document.createElement('li');
+last.textContent = '마지막';
+today.append(last);
+
+// before()
+const prev = document.createElement('p');
+prev.textContent = '이전';
+today.before(prev);
+
+// after()
+const next = document.createElement('p');
+next.textContent = '다음';
+today.after(next);
+
+///////////////////////////////////////////////////////////////////////////
+const today = document.querySelector('#today');
+const tomorrow = document.querySelector('#tomorrow');
+
+// 노드 삭제하기: Node.remove()
+tomorrow.remove();
+today.children[2].remove();
+
+// 노드 이동하기: prepend, append, before, after
+//tomorrow.children[1].after(today.children[1]);
+//today.children[1].before(tomorrow.children[2]);
+//tomorrow.lastElementChild.before(today.children[0]);
+///////////////////////////////////////////////////////////////////////////
+
+        // 기존의 요소들을 덮어쓰는 방식
+        const today = document.querySelector('#today');
+
+        today.innerHTML = '<li>처음</li>' + today.innerHTML;
+        today.innerHTML = today.innerHTML + '<li>마지막</li>';
+
+        today.outerHTML = '<p>이전</p>' + today.outerHTML;
+
+        const newToday = document.querySelector('#today');
+        newToday.outerHTML = newToday.outerHTML + '<p>다음</p>';
+
+        // const myTag = document.querySelector('#list-1');
+        // console.log(myTag);
+
+        // // innerHTML
+        // // 요소 안에 있는 html 자체를 문자열로 리턴해줌
+        // // 태그와 태그 사이의 들여쓰기와 줄바꿈 그대로
+        // console.log(myTag.innerHTML);
+        // // myTag.innerHTML = '<li>weird</li>'; // 수정
+        // myTag.innerHTML += '<li>weird</li>';
+
+        // // outerHTML
+        // // 해당 요소를 포함한 전체 HTML 코드를 문자열로 리턴
+        // // 태그와 태그 사이의 들여쓰기와 줄바꿈 그대로
+        // console.log(myTag.outerHTML);
+
+        // // textContent
+        // // 요소 안에 있는 내용들 중에서 html을 제외한 텍스트만 가져옴
+        // console.log(myTag.textContent);
+
+        // myTag.textContent = 'new text!';
+        // myTag.textContent = '<li>weird</li>';
+    </script>
+</body>
+
+</html>

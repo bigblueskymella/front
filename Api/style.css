@@ -1,0 +1,35 @@
+.head-line{
+    margin: 2em 0;
+    text-align: center;
+}
+.menus{
+    text-align: center;
+    border-top: 1px solid lightgray ;
+    border-bottom: 3px double gray;
+    margin-bottom: 20px;
+}
+.menus button{
+    background: none;
+    border: none;
+    margin: 5px;
+}
+.menus button:hover{
+    background-color: lightpink;
+}
+#news-board{
+    border-bottom: 2px solid gray;
+}
+.news-img-size{
+    max-width: 100%; /*부모의100프로*/
+    max-height: 250px;
+}
+
+ul, li{
+    list-style: none;
+    display: inline-block;
+}
+p {
+    color: gray;
+    font-size: 16px;
+    font-weight: lighter;
+   }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        이름: <input value="홍길동" onChange="print()"><br />
+        학과: <input value="컴퓨터과학과" onChange="print()"><br />
+        학년: <input value="3학년" onChange="print()"><br />
+        주소: <input value="서울" onChange="print()"><br />
+    </form>
+    <script>
+        function print() {
+            var msg = "입력 내용: ";
+            var myInput = document.getElementsByTagName("input");
+            for(let i=0; i<myInput.length; i++)
+                msg+=(myInput[i].value+",")
+            alert(msg);
+        }
+        print();
+    </script>
+</body>
+
+</html>

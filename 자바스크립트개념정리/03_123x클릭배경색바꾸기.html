@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div id="theBody"> dmf,efe</div>
+    <button onclick="chColor()">배경색상바꾸기</button>
+</body>
+
+<script>
+    function chColor() {
+         var arrColor = ["red", "green", "blue", "orange", "purple"];
+         var arrNum = Math.floor(Math.random()*arrColor.length);
+         var bodyTag = document.getElementById("theBody");
+      //  var element = document.getElementById("theBody");
+      //  element.style.backgroundColor='blue';
+        bodyTag.style.backgroundColor = arrColor[arrNum];
+    }
+
+</script>
+
+</html>

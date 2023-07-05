@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .done {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>오늘 할 일</h1>
+    <ol id="today">
+        <li>HTML 공부</li>
+        <li>CSS 공부</li>
+        <li>Javascript 공부</li>
+    </ol>
+    <br>
+
+    <h1>내일 할 일</h1>
+    <ol id="tomorrow" href="https://www.google.com">
+        <li class="item">
+            <a href="https://www.naver.com">jQuery 공부</a>
+        </li>
+        <li class="item">Java 공부</li>
+        <li class="item">Python 공부</li>
+    </ol>
+
+    <script>
+        // JS로 html의 스타일 다루기
+const today = document.querySelector('#today');
+const tomorrow = document.querySelector('#tomorrow');
+
+// style 프로퍼티 (camel case 사용)
+today.children[0].style.textDecoration = 'line-through';
+today.children[0].style.backgroundColor = '#dddddd';
+today.children[2].style.textDecoration = 'line-through';
+today.children[2].style.backgroundColor = '#dddddd';
+
+// 원하는 스타일(css)을 미리 만들어놓고 해당 태그의 class를 변경
+// JS로 class를 변경하는 방법 2개
+// 방법1. className 프로퍼티
+today.children[1].className = 'done';
+
+// 방법2. classList 프로퍼티
+// add, remove, toggle 메소드 사용 가능
+console.log(today.classList);
+console.log(today.children[1].classList);
+
+const item = tomorrow.children[1];
+// add
+item.classList.add('done');
+item.classList.add('done', 'other'); // 여러 개 class 추가 가능
+
+// remove
+item.classList.remove('done');
+item.classList.remove('done', 'other');
+
+// toggle
+item.classList.toggle('done');
+// add나 remove처럼 여러 개의 파라미터 전달 X
+item.classList.toggle('done', true); // add
+item.classList.toggle('done', false); // remove
+    </script>
+</body>
+</html>

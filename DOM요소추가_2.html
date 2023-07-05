@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .dom{
+        color:lightblue
+    }
+</style>
+<body>
+    <script>
+        let newP = document.createElement("p");
+        let content = document.createTextNode("DOM이라는 글자를 넣는다")
+        newP.appendChild(content);
+        document.body.appendChild(newP)//🎁
+        let attr = document.createAttribute("class")
+        attr.value = "dom"
+        newP.setAttributeNode(attr)
+    </script>
+</body>
+</html>

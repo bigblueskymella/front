@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if문</title>
+</head>
+<body>
+    
+    <script>
+        let age = 18;
+        //let licence = true;
+
+        if(age > 20){
+            console.log("운전이 가능합니다.");
+        }else{
+            console.log("운전이 불가능합니다.")
+        }
+
+        // if(age > 20){
+        //     console.log("운전이 가능합니다.");
+        // }else if(age >= 18){
+        //     console.log("오토바이 운전이 가능합니다.");
+        // }else{
+        //     console.log("운전이 불가능합니다.")
+        // }
+
+        //어떤 한 조건이 참true 결정이 나면 if문 종료해버린다.
+        //뒤에 있는 것이 참이어도 나오지 않는다.
+        //범위를 큰 것에서 작은 것으로 준다.
+
+        //let age = 20;으로 해주고 실행해보면 기대했던 값이 나오지 않는다.
+        // if(age >=18 ){ 
+        //     console.log("오토바이 운전이 가능합니다.");
+        // }else if(age > 20){
+        //     console.log("자동차 운전이 가능합니다.");
+        // }else{
+        //     console.log("운전이 불가능합니다.")
+        // }
+         
+        //😁18부터~ 20까지 라고 하려면 &&를 쓴다.
+        //or는 || (또는) 둘중하나면 참, 이렇게 생겼다.
+        //Not은 != 같지 않다.
+        //if(18<=age && age<20) // &&는 그리고 라는 의미.
+        // if(18 <= age && age < 20 ){ 
+        //     console.log("오토바이 운전만 가능합니다.");
+        // }else if(age > 20){
+        //     console.log("자동차 운전이 가능합니다.");
+        // }else{
+        //     console.log("운전이 불가능합니다.")
+        // }
+
+        // if(age > 20){
+        //     if(licence === true){
+        //         console.log("자동차 운전이 가능합니다.");
+        //     }else{
+        //         console.log("운전면허증을 따세요.");
+        //     }
+        // }
+        // if(age >= 18){
+        //     if(licence === true){
+        //         console.log("오토바이 운전이 가능합니다.");
+        //     }else{
+        //         console.log("오토바이 면허증을 따세요.")
+        //     }
+        // }else{
+        //     console.log("나이가 어려요.");
+        // }
+        
+
+        //퀴즈는 A,B,C,D,F 등급 출력하는거.
+    </script>
+</body>
+</html>

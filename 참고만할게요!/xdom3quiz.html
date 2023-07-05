@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘 할 일</h1>
+    <ol id="today">
+        <li>HTML 공부</li>
+        <li>CSS 공부</li>
+        <li>Javascript 공부</li>
+    </ol>
+    <br>
+
+    <h1>내일 할 일</h1>
+    <ol id="tomorrow" href="https://www.google.com">
+        <li class="item">
+            <a href="https://www.naver.com">jQuery 공부</a>
+        </li>
+        <li class="item">Java 공부</li>
+        <li class="item">Python 공부</li>
+    </ol>
+
+    <script>
+        // HTML 속성(attribute)
+// HTML 태그들이 갖고 있는 속성들은 요소 노드의 프로퍼티가 된다.
+const tomorrow = document.querySelector('#tomorrow');
+const item = tomorrow.firstElementChild;
+const link = item.firstElementChild;
+
+// id 속성
+console.log(tomorrow);
+console.log(tomorrow.id);
+
+// class 속성
+console.log(item);
+console.log(item.className);
+
+// href 속성
+console.log(link);
+console.log(link.href);  // 표준 속성
+
+// 비표준 속성으로는 프로퍼티에 접근 불가
+console.log(tomorrow.href); // undefined 비표준 속성
+
+// getAttribute('속성') 메소드
+console.log(tomorrow.getAttribute('href'));
+console.log(item.getAttribute('class'));
+
+// setAttribute('속성', '값'); 속성 추가
+// 없었던 속성은 추가가 되지만, 존재한 속성이면, 수정된 형태로 추가
+tomorrow.setAttribute('class', 'list');
+link.setAttribute('href', 'https://www.daum.net');
+
+// removeAttribute('속성')
+tomorrow.removeAttribute('HRef');  // 속성 이름에 대소문자 구분 X
+tomorrow.removeAttribute('class');
+    </script>
+</body>
+</html>
