@@ -1,0 +1,15 @@
+최초 한번
+깃허브 push용 이름 및 이메일 세팅
+$ git config --global user.name "username"
+$ git config --global user.email "email@email.com"
+
+git config --list  //나갈때 q
+
+
+
+git init //최초한번
+git add README.md   //git add . 으로 전체올림
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/bigblueskymella/front.git
+git push -u origin main
