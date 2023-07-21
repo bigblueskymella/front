@@ -1,0 +1,759 @@
+<!-- 
+    2023.07.17
+    div -> ul로 변경
+    메뉴 리스트 추가
+    한식, 중식, 일식, 양식 - 다양화
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatDorI-한식소개</title>
+    <style>
+
+        @import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+        @font-face {
+            font-family: 'KOTRAHOPE';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }   
+        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: whitesmoke;
+        }
+        header{
+            background-color: white;
+            text-align: center;
+            height: 123px;
+        }
+        main{
+            height: -webkit-calc(100% - 183px);
+            width: 100%;
+        }
+        footer{
+            display: flex;
+            justify-content: center;
+            height: 60px;
+        }
+        li{
+            list-style: none;
+            line-height: 30px;
+        }
+        /*-----------------------------------------------------------------------------------------*/
+        /* 헤더부분 전체 */
+        .header_container{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        /* 헤더부분 배경 */
+        .header_wrap{
+            background-color: white;
+            border-top: 1px solid rgb(232, 216, 197);
+            border-bottom: 2px solid #bbb;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        /* 로고, 이름을 감싸는 div */
+        .header_sub_wrap1{
+            height: 120px;
+            width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /* 로고 */
+        .logo{
+            position: absolute;
+            top: 19px;
+            left: 0;
+        }
+        /* 이름 */
+        .name{
+            font-family: 'Jeju Hallasan', cursive;
+            font-size: 70px;
+            color: #5ce1e6;
+        }
+        /* 메뉴 네브바 전체 감싸는 div */
+        .sub_nav{
+            position: absolute;
+            display: flex;
+            align-items: flex-start;
+
+            margin: 0;
+            padding: 0;
+            border: 0;
+            left: 0;
+            font-size: 100%;
+
+            width: 100%;
+            height: 130px;
+            color: rgb(141, 137, 137);
+            
+        }
+        /* 메뉴 네브바 위치 조정 */
+        .sub_nav_wrap{
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            left: 0;
+            width: 100%;
+        }
+        
+        /* 큰 메뉴 네브바 */
+        .nav_bar{
+            display: flex;
+            justify-content: center;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .nav_bar a{
+            font-family: 'Jeju Hallasan', cursive;
+            margin: 5px 20px 5px 20px;
+            text-decoration: none;
+            width: 80px;
+            height: 30px;
+            color: black;
+            position: relative;
+        }
+        .nav_bar a div{
+            left: 50%;
+            top: 50%;
+        }
+        /* 큰 메뉴 글씨 설정 */
+        .menu_bar{
+            display: flex;
+        }
+        
+        /* 메뉴 위치*/
+        .introduce, .KO, .CH, .JP, .WE{
+            display: flex;
+            flex-direction: column;
+            height: 50px;
+        }
+        
+        /* 서브 메뉴 감싸는 div */
+        .sub_KO, .sub_CH, .sub_JP, .sub_WE{
+            position: absolute;
+            left: 0;
+            top: 60px;
+            height: 200px;
+            width: 100%;
+            background-color:#2C2A29;
+            display: none;
+            z-index: 12;
+        }
+        
+        /* 서브 메뉴 폰트 설정 */
+        .sub_KO a, .sub_CH a, .sub_JP a, .sub_WE a{
+            color: rgb(255, 250, 250);
+            font-weight: 100;
+        }
+        /* 서브 메뉴의 서브 메뉴 설정 */
+        .KF_menu, .CH_menu, .JP_menu, .WE_menu{
+            display: flex;
+            position: absolute;
+            left: 150px;
+            top: 20px;
+        }
+
+        /* 메뉴를 클릭했을 때 서브 메뉴 띄우기 */
+        .KO:hover .sub_KO, .CH:hover .sub_CH, .JP:hover .sub_JP, .WE:hover .sub_WE{
+            display: flex;
+        }
+
+        .KF_menu_sub a:hover, .CH_menu_sub a:hover, .JP_menu_sub a:hover, .WE_menu_sub a:hover{
+            text-decoration: underline;
+        }
+        /* 서브 메뉴의 서브 메뉴 글씨 설정 */
+        .KF_menu_sub ul li, .CH_menu_sub ul li, .JP_menu_sub ul li, .WE_menu_sub ul li{
+            line-height: 30px;
+        }
+        /* 서브 메뉴의 서브 메뉴 글씨 설정 */
+        .KF_menu_sub ul li a, .CH_menu_sub ul li a, .JP_menu_sub ul li a, .WE_menu_sub ul li a{
+            color: rgba(188, 187, 187, 0.991);
+        }
+        .KF_menu_sub ul li a:hover, .CH_menu_sub ul li a:hover, .JP_menu_sub ul li a:hover, .WE_menu_sub ul li a:hover{
+            text-decoration: underline;
+        }
+      
+        @media screen and (min-width: 961px){ 
+            .sub_nav{
+                top: 60px;
+                height: 66px;
+            }
+        }
+        /*-----------------------------------------------------------------------------------------*/
+        /* main */
+
+        .main_container{
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        .main_wrap{
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contents_name{
+            font-family: 'Jeju Hallasan', cursive;
+            padding-top: 20px;
+            font-size: 50px;
+        }
+
+        .contents_wrap1, .contents_wrap2{
+            display: flex;
+            /* margin-top: 10px; */
+        }
+        .contents_wrap1 > div{
+            margin: 20px;
+        }
+
+        .contents_img{
+            width: 500px;
+            height: 500px;
+            border: 3px solid lightgray;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .slide_wrap{
+            width: 2000px;
+            height: 334px;
+            z-index: -1;
+        }
+        .contents_img > .slide_wrap ul{
+            position: relative;
+            list-style: none;
+            width: 2000px;
+            height: 334;
+            animation: slideAni 8s infinite ease-in-out;
+        }
+        @keyframes slideAni{
+            0%{left: 0;}
+            25%{left: -500px;}
+            50%{left: -1000px;}
+            75%{left: -1500px;}
+            100%{left: 0;}
+        }
+        .contents_img > .slide_wrap ul li{
+            width: 500px;
+            height: 334px;
+            float: left;
+        }
+        .contents_img > .slide_wrap ul li:nth-child(1){
+            background-image: url(../images/8첩반상.jpg);
+            background-size: cover;
+            height: 334px;
+            z-index: 1;
+        }
+        .contents_img > .slide_wrap ul li:nth-child(2){
+            background-image: url(../images/김치말이국수.webp);
+            background-size: cover;
+            height: 334px;
+            z-index: 1;
+        }
+        .contents_img > .slide_wrap ul li:nth-child(3){
+            background-image: url(../images/제육볶음.jpeg);
+            background-size: cover;
+            height: 334px;
+            z-index: 1;
+        }
+        .contents_img > .slide_wrap ul li:nth-child(4){
+            background-image: url(../images/김치전.jpeg);
+            background-size: cover;
+            height: 334px;
+            z-index: 1;
+        }
+
+        .contents_explain{
+            width: 500px;
+            height: 500px;
+            border: 3px solid lightgray;
+            border-radius: 10px;
+        }
+        .lili, .food_variety_explain{
+            font-family: 'KOTRAHOPE';
+            font-size: 22px;
+            line-height: 1.5;
+        }
+
+        .food_variety{
+            padding-top: 20px;
+            /* width: 1100px; */
+        }
+        .food_variety_list{
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            /* list-style: none; */
+        }
+        .food_variety li{
+            border: 1.3px solid lightgray;
+            border-radius: 10px;
+            list-style: none;
+            text-decoration: none;
+            width: 110px;
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+        }
+        .food_variety li{
+            text-decoration: none;
+            font-family: 'Jeju Hallasan', cursive;
+            color: black;
+        }
+        .food_variety li:hover{
+            text-decoration: underline;
+        }
+        /* 현재 위치 페이지 버튼을 색상 표시 */
+        .food_variety_list li:nth-child(1){
+            background-color: #5ce1e6;
+        }
+        .food_variety_list li:nth-child(1){
+            color: white;
+        }
+
+        .food_variety_wrap{
+            margin-left: 20px;
+            /* margin-right: 20px; */
+            width: -webkit-calc(100% - 60px);
+            height: 300px;
+        }
+        .food_variety_explain_wrap{
+            padding-top: 30px;
+            height: 150px;
+            border: 3px solid lightgray;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .궁중음식, .반가음식 ,.사찰음식, .서민음식{
+            position: absolute;
+            margin-left: 30px;
+            margin-top: 0px;
+            line-height: 1.5;
+        }
+        .반가음식 ,.사찰음식, .서민음식{
+            /* display: none; */
+            visibility: hidden;
+            line-height: 2;
+        }
+        
+        /*-----------------------------------------------------------------------------------------*/
+        /* footer*/
+        .footer_menu{
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .footer_menu a{
+            text-decoration: none;
+            font-weight: 500;
+            color: black;
+            margin: 15px;
+        }
+        .footer_menu .div_line{
+            width: 1px;
+            height: 16px;
+            border: 1px rgb(43, 43, 43);
+            background-color: rgb(43, 43, 43);
+            margin: auto 0;
+        }
+        /*-----------------------------------------------------------------------------------------*/
+    </style>
+    <script>
+        function change_v1(){
+            var v1 = document.getElementById("v1");
+            var v2 = document.getElementById("v2");
+            var v3 = document.getElementById("v3");
+            var v4 = document.getElementById("v4");
+
+            var ve1 = document.getElementById("ve1");
+            var ve2 = document.getElementById("ve2");
+            var ve3 = document.getElementById("ve3");
+            var ve4 = document.getElementById("ve4");
+            
+            v1.style.color = "white";
+            v2.style.color = "black";
+            v3.style.color = "black";
+            v4.style.color = "black";
+
+            v1.style.backgroundColor = "#5ce1e6";
+            v2.style.backgroundColor = "transparent";
+            v3.style.backgroundColor = "transparent";
+            v4.style.backgroundColor = "transparent";
+
+            ve1.style.visibility = "visible"
+            ve2.style.visibility = "hidden"
+            ve3.style.visibility = "hidden"
+            ve4.style.visibility = "hidden"
+        }
+
+        function change_v2(){
+            var v1 = document.getElementById("v1");
+            var v2 = document.getElementById("v2");
+            var v3 = document.getElementById("v3");
+            var v4 = document.getElementById("v4");
+
+            var ve1 = document.getElementById("ve1");
+            var ve2 = document.getElementById("ve2");
+            var ve3 = document.getElementById("ve3");
+            var ve4 = document.getElementById("ve4");
+
+            v1.style.color = "black";
+            v2.style.color = "white";
+            v3.style.color = "black";
+            v4.style.color = "black";
+            
+            v1.style.backgroundColor = "transparent";
+            v2.style.backgroundColor = "#5ce1e6";
+            v3.style.backgroundColor = "transparent";
+            v4.style.backgroundColor = "transparent";
+
+            ve1.style.visibility = "hidden"
+            ve2.style.visibility = "visible"
+            ve3.style.visibility = "hidden"
+            ve4.style.visibility = "hidden"
+        }
+
+        function change_v3(){
+            var v1 = document.getElementById("v1");
+            var v2 = document.getElementById("v2"); 
+            var v3 = document.getElementById("v3");
+            var v4 = document.getElementById("v4");
+
+            var ve1 = document.getElementById("ve1");
+            var ve2 = document.getElementById("ve2");
+            var ve3 = document.getElementById("ve3");
+            var ve4 = document.getElementById("ve4");
+            
+            v1.style.color = "black";
+            v2.style.color = "black";
+            v3.style.color = "white";
+            v4.style.color = "black";
+
+            v1.style.backgroundColor = "transparent";
+            v2.style.backgroundColor = "transparent";
+            v3.style.backgroundColor = "#5ce1e6";
+            v4.style.backgroundColor = "transparent";
+
+            ve1.style.visibility = "hidden"
+            ve2.style.visibility = "hidden"
+            ve3.style.visibility = "visible"
+            ve4.style.visibility = "hidden"
+        }
+
+        function change_v4(){
+            var v1 = document.getElementById("v1");
+            var v2 = document.getElementById("v2");
+            var v3 = document.getElementById("v3");
+            var v4 = document.getElementById("v4");
+
+            var ve1 = document.getElementById("ve1");
+            var ve2 = document.getElementById("ve2");
+            var ve3 = document.getElementById("ve3");
+            var ve4 = document.getElementById("ve4");
+
+            v1.style.color = "black";
+            v2.style.color = "black";
+            v3.style.color = "black";
+            v4.style.color = "white";
+            
+            v1.style.backgroundColor = "transparent";
+            v2.style.backgroundColor = "transparent";
+            v3.style.backgroundColor = "transparent";
+            v4.style.backgroundColor = "#5ce1e6";
+
+            ve1.style.visibility = "hidden"
+            ve2.style.visibility = "hidden"
+            ve3.style.visibility = "hidden"
+            ve4.style.visibility = "visible"
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <header>
+            <div class="header_container">
+                <div class="header_wrap">
+                    <div class="header_sub_wrap1">
+                        <a href="../index.html"><div class="logo"><img src="../images/Matdori.png" alt="matdori" width="100px" height="100px"></div></a>
+                        <div><label for="name" class="name">MATDORI</label></div>  
+                    </div>
+                    
+                    <div class="sub_nav">
+                        <div class="sub_nav_wrap">
+                            <nav class="nav_bar">
+                                <ul class="menu_bar">
+                                    <li class="introduce"><a href="#">소개</a></li>
+
+                                    <li class="KO">
+                                        <a href="./korean_food_간단소개.html" class="korean_Food">한식</a>
+                                        <div class="sub_KO">
+                                            <ul class="KF_menu">
+                                                <li class="KF_menu_sub"><a href="./korean_food_간단소개.html">간단소개</a></li>
+                                                <li class="KF_menu_sub">
+                                                    <a href="./sub_1/korean_food_김치찌개.html">찌개류</a>
+                                                    <ul>
+                                                        <li><a href="./sub_1/korean_food_김치찌개.html">김치찌개</a></li>
+                                                        <li><a href="./sub_1/korean_food_된장찌개.html">된장찌개</a></li>
+                                                        <li><a href="./sub_1/korean_food_고추장찌개.html">고추장찌개</a></li>
+                                                        <li><a href="./sub_1/korean_food_부대찌개.html">부대찌개</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="KF_menu_sub">
+                                                    <a href="./sub_2/korean_food_김치말이국수.html">면류</a>
+                                                    <ul>
+                                                        <li><a href="./sub_2/korean_food_김치말이국수.html">김치말이국수</a></li>
+                                                        <li><a href="./sub_2/korean_food_콩국수.html">콩국수</a></li>
+                                                        <li><a href="./sub_2/korean_food_냉면.html">냉면</a></li>
+                                                        <li><a href="./sub_2/korean_food_비빔국수.html">비빔국수</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="KF_menu_sub">
+                                                    <a href="./sub_3/korean_food_비빔밥.html">쌀류</a>
+                                                    <ul>
+                                                        <li><a href="./sub_3/korean_food_비빔밥.html">비빔밥</a></li>
+                                                        <li><a href="./sub_3/korean_food_김치볶음밥.html">김치볶음밥</a></li>
+                                                        <li><a href="./sub_3/korean_food_김밥.html">김밥</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="CH">
+                                        <a href="#" class="chinese_Food">중식</a>
+                                        <div class="sub_CH">
+                                            <ul class="CH_menu">
+                                                <li class="CH_menu_sub"><a href="#">간단소개</a></li>
+                                                <li class="CH_menu_sub">
+                                                    <a href="#">한국식</a>
+                                                    <ul>
+                                                        <li><a href="#">짜장면</a></li>
+                                                        <li><a href="#">짬뽕</a></li>
+                                                        <li><a href="#">볶음밥</a></li>
+                                                        <li><a href="#">탕수육</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="CH_menu_sub">
+                                                    <a href="#">일본식</a>
+                                                    <ul>
+                                                        <li><a href="#">나가사키 짬뽕</a></li>
+                                                        <li><a href="#">탄탄멘</a></li>
+                                                        <li><a href="#">잡탕밥</a></li>
+                                                        <li><a href="#">샤브샤브</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="CH_menu_sub">
+                                                    <a href="#">미국식</a>
+                                                    <ul>
+                                                        <li><a href="#">차오멘</a></li>
+                                                        <li><a href="#">프라이드 라이스</a></li>
+                                                        <li><a href="#">오렌지 치킨</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="JP">
+                                        <a href="#" class="japanese_Food">일식</a>
+                                        <div class="sub_JP">
+                                            <ul class="JP_menu">
+                                                <li class="JP_menu_sub"><a href="#">간단소개</a></li>
+                                                <li class="JP_menu_sub">
+                                                    <a href="#">면류</a>
+                                                    <ul>
+                                                        <li><a href="#">라멘</a></li>
+                                                        <li><a href="#">소바</a></li>
+                                                        <li><a href="#">우동</a></li>
+                                                        <li><a href="#">츠케멘</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="JP_menu_sub">
+                                                    <a href="#">밥류</a>
+                                                    <ul>
+                                                        <li><a href="#">스시</a></li>
+                                                        <li><a href="#">규동</a></li>
+                                                        <li><a href="#">돈부리</a></li>
+                                                        <li><a href="#">무스비</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="JP_menu_sub">
+                                                    <a href="#">튀김류</a>
+                                                    <ul>
+                                                        <li><a href="#">가라아게</a></li>
+                                                        <li><a href="#">고로케</a></li>
+                                                        <li><a href="#">돈까스</a></li>
+                                                        <li><a href="#">덴푸라</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="JP_menu_sub">
+                                                    <a href="#">고기류</a>
+                                                    <ul>
+                                                        <li><a href="#">니쿠자가</a></li>
+                                                        <li><a href="#">돈지루</a></li>
+                                                        <li><a href="#">스키야끼</a></li>
+                                                        <li><a href="#">야키니쿠</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="JP_menu_sub">
+                                                    <a href="#">해산물</a>
+                                                    <ul>
+                                                        <li><a href="#">사시미</a></li>
+                                                        <li><a href="#">타코야키</a></li>
+                                                        <li><a href="#">타코와사비</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="WE">
+                                        <a href="#" class="western_Food">양식</a>
+                                        <div class="sub_WE">
+                                            <ul class="WE_menu">
+                                                <li class="WE_menu_sub"><a href="#">간단소개</a></li>
+                                                <li class="WE_menu_sub">
+                                                    <a href="#">파스타</a>
+                                                    <ul>
+                                                        <li><a href="#">뽀모도로</a></li>                                                      
+                                                        <li><a href="#">아라비아타</a></li>                                                      
+                                                        <li><a href="#">카르보나라</a></li>                                                      
+                                                        <li><a href="#">알리오 올리오</a></li>                                                      
+                                                    </ul>
+
+                                                </li>
+                                                <li class="WE_menu_sub">
+                                                    <a href="#">피자</a>
+                                                    <ul>
+                                                        <li><a href="#">나폴리식 피자</a></li>
+                                                        <li><a href="#">로마식 피자</a></li>
+                                                        <li><a href="#">뉴욕식 피자</a></li>
+                                                        <li><a href="#">시카고식 피자</a></li>
+                                                        <li><a href="#">아르헨티나식 피자</a></li>
+                                                    </ul>
+
+                                                </li>
+                                                <li class="WE_menu_sub">
+                                                    <a href="#">리소토</a>
+                                                    <ul>
+                                                        <li><a href="#">밀라네제</a></li>
+                                                        <li><a href="#">오징어 먹물</a></li>
+                                                        <li><a href="#">페스카토라</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>   
+            <div>
+        </header>
+
+        <main>
+            <div class="main_container">
+                <div class="main_wrap">
+                    <div class="contents_name">한식</div>
+                    <div class="contents_wrap1">
+                        <div class="contents_img">
+                            <div class="slide_wrap">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                          
+                        <div class="contents_explain">
+                            <div class="lili">
+                                <br>한국 요리(韓國料理) 또는 조선 요리는 한국의 요리이다. <br><br>
+                                한국에서 발달한 고유하고도 전통적인 음식을 흔히 한식(韓食)으로도 부른다. 
+                                복잡한 궁중 요리에서부터 지방의 특색 요리와 현대의 맛있는 요리에 이르기까지 재료와 조리법이 매우 다양하다. <br><br>
+                                
+                                전통적인 한국 정식은 밥, 국, 김치 등과 함께 나오는 많은 반찬들로 이루어진다. <br><br>
+
+                                한국 요리는 주로 쌀을 기반으로 일반적으로 사용되는 성분 포함 참기름, 들기름, 고추장, 된장, 간장, 소금, 마늘, 생강, 고춧가루, 다시마 국물 등으로 맛을 낸다. <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contents_wrap2">
+                        <div class="food_variety_wrap">
+                            <div class="food_variety">
+                                <ul class="food_variety_list">
+                                    <li id="v1" onclick="change_v1()">궁중 음식</li>
+                                    <li id="v2" onclick="change_v2()">반가 음식</li>
+                                    <li id="v3" onclick="change_v3()">사찰 음식</li>
+                                    <li id="v4" onclick="change_v4()">서민 음식</li>
+                                </ul>
+                            </div>
+                            <div class="food_variety_explain_wrap">
+                                <div id="ve1" class="food_variety_explain 궁중음식">
+                                    삼국시대 이후 중앙 집권이 굳혀지며 이어져 내려온 화려한 상차림. <br>
+                                    특별히 치우쳐진 바 없이 여러 지역의 식재를 골라 다양하게 섞어 쓴다는 특징이 있다. <br>
+                                    개성 한정식은 반가 음식이긴 하나 옛 수도였기에 궁중 음식의 화려한 특징을 가졌으며 수도권 위주로 왕실의 영향을 받아 실질적으로는 궁중 음식에 가깝다.
+                                </div>
+                                <div id="ve2" class="food_variety_explain 반가음식">
+                                    삼국시대의 호족, 고려시대의 문벌 귀족과 조선의 양반가를 통해 이어진 가문의 전통적 음식. <br>
+                                    대표적으로 전라도에서 발전한 남도 한정식이 있으며, 해당 산지의 음식을 신선하게 쓰는 경우가 많다.
+                                </div>
+                                <div id="ve3" class="food_variety_explain 사찰음식">
+                                    삼국시대와 고려시대 불교의 발전과 함께 빚어진 채식 중심 식단. <br>
+                                    그러나 조선의 숭유억불과 일제 강점기 토속 불교 억압, 6.25의 전란으로 인해 매우 많은 요소가 소실되었다.
+                                </div>
+                                <div id="ve4" class="food_variety_explain 서민음식">
+                                    지역별로 가장 많이 분포했던 서민들이 소박하게 먹었던 음식. <br>
+                                    대체로 각 지역에 존재했던 양반가의 영향을 받았으나 다소 열화된 음식을 먹었으며, 조선 후기에 이르러 주막 문화의 발달과 함께 발전했다. <br>
+                                    현재 우리가 즐기는 대부분의 음식이다.
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <ul class="footer_menu">
+                <li><a href="#">회사소개</a></li>
+                <div class="div_line"></div>
+                <li><a href="#">이용약관</a></li>
+                <div class="div_line"></div>
+                <li><a href="#">고객센터</a></li>
+                <div class="div_line"></div>
+                <li><a href="#">MatDorI.Corp</a></li>
+                </ul>
+        </footer>
+    </div>
+    
+</body>
+</html>
+

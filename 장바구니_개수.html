@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 예제</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="products">
+        <h2>상품 목록</h2>
+        <ul>
+            <li>
+                상품 1
+                <input type="number" id="product1Quantity" min="1" value="1">
+                <button onclick="addToCart('상품 1', 'product1Quantity')">장바구니에 추가</button>
+            </li>
+            <li>
+                상품 2
+                <input type="number" id="product2Quantity" min="1" value="1">
+                <button onclick="addToCart('상품 2', 'product2Quantity')">장바구니에 추가</button>
+            </li>
+            <li>
+                상품 3
+                <input type="number" id="product3Quantity" min="1" value="1">
+                <button onclick="addToCart('상품 3', 'product3Quantity')">장바구니에 추가</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cart">
+        <h2>장바구니</h2>
+        <ul id="cart-items">
+        </ul>
+        <button onclick="clearCart()">장바구니 비우기</button>
+    </div>
+
+    <script>
+        let cartItems = [];
+
+        function addToCart(productName, quantityInputId) {
+            const quantityInput = document.getElementById(quantityInputId);
+            const quantity = parseInt(quantityInput.value, 10);
+            if (quantity <= 0) {
+                alert("유효하지 않은 개수입니다.");
+                return;
+            }
+
+            for (let i = 0; i < quantity; i++) {
+                cartItems.push(productName);
+            }
+            displayCart();
+        }
+
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            displayCart();
+        }
+
+        function clearCart() {
+            cartItems = [];
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartList = document.getElementById('cart-items');
+            cartList.innerHTML = '';
+
+            cartItems.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = '제거';
+                removeButton.onclick = () => removeFromCart(index);
+                listItem.appendChild(removeButton);
+                cartList.appendChild(listItem);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
