@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #profile {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5%;
+            padding: 10px;
+        }
+
+        #desc {
+            margin: 10px 20px;
+        }
+
+        p {
+            font-size: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .user {
+            color: blueviolet;
+        }
+
+
+        /* 추가부분 */
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .clicked {
+            background-color: yellow;
+        }
+
+
+        .blue-italic {
+            background-color: #8ddfff;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Profile</h1>
+    <div id="profile">
+        <img src="images/pf.png" alt="도레미">
+        <div id="desc">
+            <p class="user">이름 : 도레미</p>
+            <p class="user" style="display:none">주소 : somewhere</p>
+            <p class="user" style="display:none">연락처 : 1234-5678</p>
+        </div>
+    </div>
+
+    <script>
+        const title = document.querySelector("#profile"); //제목
+        const userName = document.querySelector("#desc p"); //이름
+        const pfImage = document.querySelector("#profile img"); //프로필 이미지
+
+        // title.onclick = () => title.innerText = "프로필";
+        title.onclick = () => {
+            // 아래 두줄 먼저하고, 🟠주석 처리 후 3줄로 해보기.
+            // 🟠3줄 주석 후 if/else로 하기.
+
+            // title.style.backgroundColor = "lightblue";
+            // title.style.color = "white";
+            // title.classList.add("clicked");
+
+            //🟠 contain() 함수 : 특정 클래스가 있는지 확인
+            // if(!title.classList.contains("clicked")){
+            //     title.classList.add("clicked");
+            // }else{
+            //     title.classList.remove("clicked");
+            // }
+             //🟠토글로 나타낼 수도 있다.
+            title.onclick = () => {
+                title.classList.toggle("clicked");
+            }
+             //🟠퀴즈! 토글 이용해서 낮, 밤 만들기. or 전구
+        }
+
+        // userName.onclick = () => userName.innerHTML = `이름 : <b>민들레</b>`;
+        userName.onclick = () => {
+            userName.innerHTML = `이름 : <b>민들레</b>`;
+            userName.style.color = "blue";
+        }
+        pfImage.onclick = () => pfImage.src = "images/pf2.png";
+    </script>
+</body>
+
+</html>
