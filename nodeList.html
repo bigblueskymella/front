@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>DOM LIST</h3>
+    <h1>Web Programming</h1>
+    <ul id="itemList">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+    </ul>
+
+    <p> 새로운 노드 추가 과정 </p>
+    <p>1. 🟡모든 HTML 태그는 🟡요소(element)노드이다. </p>
+    <p>2. HTML태그에서 사용하는 텍스트 내용은 자식 노드인 🟡텍스트(text)노드이다. </p>
+    <p>3. HTML태그에 있는 속성은 자식 노드인 🟡속성(attribute)노드이다. </p>
+    <p>4. 주석은 주석(commend)노드이다. </p>
+
+    <script>
+        let newP = document.createElement("p"); //p요소 노드 만들기.
+        let txtNode = document.createTextNode("DOM은 Document object model의 줄임말입니다.") //텍스트 노드 만들기.
+        newP.appendChild(txtNode); //자식노드 연결
+        document.getElementById("itemList").appendChild(newP); //화면에 표시
+        
+    </script>
+</body>
+</html>

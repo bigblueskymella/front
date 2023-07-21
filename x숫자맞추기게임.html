@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>숫자 맞추기 게임</h1>
+    <div>결과가 나온다</div>
+    <input type="number">
+    <button id="set_button">선택</button>
+
+    <script>
+        // 랜덤번호 지정
+        //유저가 번호를 입력한다 그리고 go라는 버튼 누름
+        //만약에 유저가 랜덤번호 맞추면, 맞췄습니다!
+        //랜덤번호가 < 유저번호 Down!!!
+        //랜덤번호가 > 유저번호 Up!!!
+        //Reset 누르면 게임 리셋
+        // 5번의 기회를 다 쓰면 게임 끝! (버튼 disable)
+        //유저가 1~100범위 밖 숫자 입력하면 알려준다. 기회 깎지 않음.
+        // 이미 입력한 숫자 또 입력하면 알려준다. 기회 깎지 않음.
+
+        let computerNum = 0;
+        let setButton = document.getElementById("set_button");
+        // console.log(setButton);
+        setButton.addEventListener("click", play)
+
+        function pickRandomNum(){
+            computerNum = Math.floor(Math.random()*100)+1;
+            console.log("정답", computerNum)
+        }
+
+        function play(){
+            console.log("게임시작");
+        }
+
+        pickRandomNum();
+    </script>
+</body>
+</html>

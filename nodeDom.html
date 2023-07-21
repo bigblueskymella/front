@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM</title>
+</head>
+<body>
+  <div id="container">    
+    <h1>DOM을 공부합시다</h1>
+    <a href="#" onclick="addP(); this.onclick='';">더 보기</a>    
+    <!--this.onclick='';은 함수 한번만 실행. 클릭할 때마다 p요소 계속 추가발생방지.-->
+    <div id="info"></div>
+  </div>
+  
+  <script>
+    let newP = document.createElement("p"); //p요소 노드 만들기.
+    let txtNode = document.createTextNode("DOM은 Document object model의 줄임말입니다.") //텍스트 노드 만들기.
+    function addP(){
+        newP.appendChild(txtNode);
+        document.getElementById("info").appendChild(newP);    //자식노드 연결
+    }
+
+    //🟠속성값이 있는 img 새로운 요소 추가하기. 632p
+    let newImg = document.createElement("img"); //이미지 노드 추가
+    let srcNode = document.createAttribute("src"); //src속성 만들어 변수
+    let altNode = document.createAttribute("alt"); //alt속성 만들어 변수
+    srcNode.value = "images/K-23.jpg"; //src속성값 지정
+    altNode.value = "돔 트리 예제 이미지" //alt속성값 지정
+    //연결
+    newImg.setAttributeNode(srcNode); //이미지의 src속성 노드 연결. 아직 img요소는 만들어 놓기만 한 상태
+    //img요소 화면에 표시하려면 웹문서의 DOM에 추가해야
+    document.getElementById("info").appendChild(newImg); //info위치에 img요소를 자식 요소로 추가
+
+</script>
+
+</body>
+</html>
