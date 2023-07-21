@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>자바스크립트 토글 예제</title>
+  <style>
+    #toggleContent{
+        border: 1px solid;
+        width: 300px;
+        background-color: lightgoldenrodyellow;
+        display: none;
+    }
+    button{
+        background-color: burlywood;
+        padding: 10px;
+        border: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggleButton">토글버튼</button>
+  <div id="toggleContent">
+    <pre>    여기에 토글될 내용이 들어갑니다.
+        여기에 토글될 내용이 들어갑니다.
+        여기에 토글될 내용이 들어갑니다.
+        여기에 토글될 내용이 들어갑니다.
+        여기에 토글될 내용이 들어갑니다.
+    </pre>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const toggleContent = document.getElementById('toggleContent');
+
+    toggleButton.addEventListener('click', function() {
+      if (toggleContent.style.display === 'none') {
+        toggleContent.style.display = 'block';
+      } else {
+        toggleContent.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

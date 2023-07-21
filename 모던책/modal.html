@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <!-- <link rel="stylesheet" href="css/modal-result.css"> -->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: lightgoldenrodyellow;
+            border-radius: 5px;
+            font-weight: bold;
+            padding: 15px;
+        }
+
+        #modal-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        #modal-box.active {
+            display: flex;
+        }
+
+        #modal-contents {
+            background-color: #fff;
+            width: 300px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        span {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            /* border: 1px solid; */
+        }
+        /* 닫기 버튼 */
+        #modal-contents button {
+            background-color: #fff;
+            color: lightgray;
+            font-size: 15px;
+            margin-left: 30px;
+            padding: 0;
+            border: none;
+        }
+
+        #profile {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        #desc {
+            margin: 10px 20px;
+            /* border: 1px solid; */
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="open">프로필 보기</button>
+
+    <div id="modal-box">
+        <div id="modal-contents">
+            
+            <span id="title">My Profile</span>
+            <button id="close"><!--&times;--> 닫기 x</button>
+            <div id="profile">
+                <img src="images/pf.png" alt="도레미">
+                <div id="desc">
+                    <p class="user">이름 : 도레미</p>
+                    <p class="user">주소 : somewhere</p>
+                    <p class="user">연락처 : 1234-5678</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const open = document.querySelector("#open");
+        const modalBox = document.querySelector("#modal-box");
+        const close = document.querySelector("#close");
+
+        open.addEventListener("click", () => {
+            modalBox.classList.add("active"); // 클릭하면 클래스리스트에 .active 스타일 추가
+            // 🟠토글로
+            // modalBox.classList.toggle("active");
+        });
+
+        close.addEventListener("click", () => {
+            modalBox.classList.remove("active"); // 클릭하면 클래스리스트에서 .active 스타일 제거
+            // 🟠토글로
+            // modalBox.classList.toggle("active");
+        });
+    </script>
+
+</body>
+
+</html>
