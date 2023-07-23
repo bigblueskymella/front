@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{
+      display: inline-block;
+    }
+    table, th, td {
+      border: 1px solid gray;
+      border-collapse: collapse;
+    }
+    th{
+      width: 80px;
+      background-color: rgb(205, 243, 230);
+    }
+    td{
+      width: 210px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="result">
+
+  </div>
+
+  <script>
+    // fetch("https://dummyjson.com/quotes")
+    // .then(response => response.json())
+    // .then(quotes => console.log(quotes));
+
+    async function init() {
+      const response = await fetch("https://dummyjson.com/quotes");
+      const quotes = await response.json();
+      console.log(quotes);
+      display(quotes); //필요 정보만 표시
+    }
+
+    function display(quotes) {
+      const result = document.querySelector("#result");
+      let string = "";
+      quotes.forEach(quotes => {
+        string += ` <ul>
+           <li>${quotes.author}</li>
+           <li>${quotes.quote}</li>
+         </ul>
+        `;
+      });
+      result.innerHTML = string;
+    }
+
+    init();
+  //   //콘솔 확인
+
+
+  </script>
+</body>
+
+</html>

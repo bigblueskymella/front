@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON</title>
+  <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+  <div id="result"></div>
+
+  <script>
+    let xhr = new XMLHttpRequest(); //서버와 연결하기 위한 객체 생성
+    xhr.open("GET", "student.json"); //서버와 연결
+    xhr.send(); //서버와 연결
+
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status == 200){
+            let student = JSON.parse(xhr.responseText);
+            document.getElementById("result").innerHTML = `
+            <h1>${student.name}</h1>
+            <ul><li>전공 : ${student.major}</li>
+            <li>학년 : ${student.grade}</li></ul>
+            `;
+        }
+    }
+  </script>
+</body>
+</html>
