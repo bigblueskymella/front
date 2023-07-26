@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <fieldset>
+      <legend>
+
+      </legend>
+    </fieldset>
+  </form>
+
+  <div id="radioContainer">
+    <input type="radio" name="radioGroup" value="option1" class="radioOption"> Option 1
+    <input type="radio" name="radioGroup" value="option2" class="radioOption"> Option 2
+    <input type="radio" name="radioGroup" value="option3" class="radioOption"> Option 3
+  </div>
+
+  <script>
+    // 부모 요소에 이벤트 리스너 등록
+    document.getElementById("radioContainer").addEventListener("change", function(event) {
+      // 이벤트가 발생한 요소를 확인합니다.
+      const target = event.target;
+  
+      // 라디오 버튼이면서 클래스 이름이 "radioOption"인 경우에만 처리합니다.
+      if (target.matches(".radioOption")) {
+        // 선택된 값을 활용하여 원하는 동작을 수행합니다.
+        console.log(target.value + "이 선택되었습니다.");
+      }else{
+        console.log(`${target.value}해제`);
+      }
+    });
+  </script>
+  
+</body>
+</html>
